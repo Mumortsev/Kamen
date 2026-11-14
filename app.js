@@ -27,7 +27,22 @@ function makeMask(layout){const c=document.createElement('canvas');c.width=layou
 function makeTiles(layout){let seed=123;const random=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483646};const {x,y,w,h}=layout.bounds;const points=[];const cols=layout.cols,rows=layout.rows;for(let r=0;r<=rows;r++){points[r]=[];for(let c=0;c<=cols;c++)points[r][c]=[x+(c+(c&&c<cols?(random()-.5)*.56:0))*w/cols,y+(r+(r&&r<rows?(random()-.5)*.55:0))*h/rows]}
  const result=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const path=new Path2D();polygon(path,[points[r][c],points[r][c+1],points[r+1][c+1],points[r+1][c]]);result.push({path,corners:[points[r][c],points[r][c+1],points[r+1][c+1],points[r+1][c]],start:(1-(r+.5)/rows)*.75+c/cols*.07+random()*.035})}const raster=mask.getContext('2d').getImageData(0,0,layout.w,layout.h).data;
  const visibleTiles=result.filter(tile=>{const xs=tile.corners.map(p=>p[0]),ys=tile.corners.map(p=>p[1]);const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);for(const fx of [.15,.5,.85])for(const fy of [.15,.5,.85]){const x=Math.round(x0+(x1-x0)*fx),y=Math.round(y0+(y1-y0)*fy);if(x>=0&&x<layout.w&&y>=0&&y<layout.h&&raster[(y*layout.w+x)*4+3]>20)return true}return false});
- const first=Math.min(...visibleTiles.map(tile=>tile.start));for(const tile of visibleTiles)tile.start=Math.max(0,tile.start-first-.025);return visibleTiles}
+ const first=Math.min(...visibleTiles.map(tile=>tile.start));for(const tile of visibleTiles){
+ tile.start=Math.max(0,tile.start-first-.025);
+ const xs=tile.corners.map(p=>p[0]),ys=tile.corners.map(p=>p[1]);
+ const x0=Math.floor(Math.min(...xs))-1,y0=Math.floor(Math.min(...ys))-1;
+ const x1=Math.ceil(Math.max(...xs))+1,y1=Math.ceil(Math.max(...ys))+1;
+ tile.x=x0;tile.y=y0;tile.cx=(x0+x1)/2;tile.cy=(y0+y1)/2;
+ const sprite=document.createElement('canvas');sprite.width=x1-x0;sprite.height=y1-y0;
+ const s=sprite.getContext('2d');s.translate(-x0,-y0);s.save();s.clip(tile.path);s.drawImage(after,0,0,layout.w,layout.h);s.restore();s.globalCompositeOperation='destination-in';s.drawImage(mask,0,0);
+ tile.sprite=sprite;
+ // Each photographic stone fragment enters from outside the frame, with its own trajectory.
+ const fromRight=random()>.5;
+ tile.originX=(fromRight?layout.w+100+random()*170:-100-random()*170)-tile.cx;
+ tile.originY=(random()-.2)*(mobile?230:300)+70;
+ tile.turn=(random()-.5)*1.15;
+ tile.arc=(random()-.5)*(mobile?160:220);
+ }return visibleTiles}
 function schedule(){if(!frame)frame=requestAnimationFrame(draw)}
 function updateProgress(){schedule()}
 function measure(force=false){const nextMobile=portrait();const widthChanged=Math.abs(innerWidth-oldWidth)>2;if(!force&&!widthChanged)return;oldWidth=innerWidth;width=innerWidth;
@@ -40,8 +55,19 @@ function loadImage(url){return new Promise((resolve,reject)=>{const image=new Im
 async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{const [b,a]=await Promise.all([loadImage(`./assets/${name}-concrete.webp`),loadImage(`./assets/${name}-after.webp`)]);if(version!==sceneVersion)return;before=b;after=a;const layout=layouts[name];mask=makeMask(layout);tiles=makeTiles(layout);stoneLayer=document.createElement('canvas');stoneLayer.width=layout.w;stoneLayer.height=layout.h;ready=true;root.classList.add('ready');schedule()}catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
 function updateUI(){const reveal=smooth((progress-.67)/.17);root.style.setProperty('--reveal',reveal.toFixed(4));root.style.setProperty('--cue',(1-smooth(progress/.12)).toFixed(4));const next=reveal>.015;if(next!==visible){visible=next;root.classList.toggle('hero-visible',visible);header.hidden=!visible;copy.hidden=!visible;document.getElementById('bottom').hidden=!visible;document.getElementById('lower').hidden=!visible;document.getElementById('lower').inert=!visible;header.inert=!visible;copy.inert=!visible;header.setAttribute('aria-hidden',String(!visible));copy.setAttribute('aria-hidden',String(!visible))}document.getElementById('cue').style.visibility=progress>.15?'hidden':'visible'}
 function draw(){frame=0;progress=reduced?target:progress+(target-progress)*.26;if(Math.abs(target-progress)<.0001)progress=target;updateUI();if(ready){const layout=layouts[mobile?'mobile':'desktop'];const scale=Math.min(width/layout.w,height/layout.h),ox=(width-layout.w*scale)/2,oy=(height-layout.h*scale)/2;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);ctx.translate(ox,oy);ctx.scale(scale,scale);ctx.drawImage(before,0,0,layout.w,layout.h);
- const p=clamp(progress/.62);if(p>0){const stone=stoneLayer.getContext('2d');stone.clearRect(0,0,layout.w,layout.h);stone.globalCompositeOperation='source-over';if(p>=.999){stone.drawImage(after,0,0,layout.w,layout.h)}else{const placed=new Path2D();for(const tile of tiles){const t=clamp((p-tile.start)/.12);if(t>=1){polygon(placed,tile.corners)}}stone.save();stone.clip(placed);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore();if(!reduced)for(const tile of tiles){const t=clamp((p-tile.start)/.12);if(t<=0||t>=1)continue;stone.save();stone.clip(tile.path);stone.globalAlpha=smooth(t);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore()}}
- stone.globalCompositeOperation='destination-in';stone.drawImage(mask,0,0);stone.globalCompositeOperation='source-over';ctx.drawImage(stoneLayer,0,0)}}
+ const p=clamp(progress/.62);if(p>0){const stone=stoneLayer.getContext('2d');stone.clearRect(0,0,layout.w,layout.h);stone.globalCompositeOperation='source-over';if(p>=.999){stone.drawImage(after,0,0,layout.w,layout.h)}else{const placed=new Path2D();for(const tile of tiles){const t=clamp((p-tile.start)/.18);if(t>=1||(reduced&&t>0)){polygon(placed,tile.corners)}}stone.save();stone.clip(placed);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore();}
+ stone.globalCompositeOperation='destination-in';stone.drawImage(mask,0,0);stone.globalCompositeOperation='source-over';ctx.drawImage(stoneLayer,0,0);
+ // Flying stones are outside the facade mask. Their own clipped silhouettes travel intact.
+ if(p<.999&&!reduced)for(const tile of tiles){
+ const t=clamp((p-tile.start)/.18);if(t<=0||t>=1)continue;
+ const ease=1-Math.pow(1-t,3),remaining=1-ease;
+ const x=tile.cx+tile.originX*remaining;
+ const y=tile.cy+tile.originY*remaining+Math.sin(t*Math.PI)*tile.arc;
+ ctx.save();ctx.translate(x,y);ctx.rotate(tile.turn*remaining);const size=1+remaining*.14;ctx.scale(size,size);
+ ctx.shadowColor=`rgba(14,19,14,${.34*remaining})`;ctx.shadowBlur=10*remaining;ctx.shadowOffsetY=5*remaining;
+ ctx.drawImage(tile.sprite,tile.x-tile.cx,tile.y-tile.cy);ctx.restore();
+ }
+ }}
  if(progress!==target)schedule()}
 function restart(){target=0;schedule()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
