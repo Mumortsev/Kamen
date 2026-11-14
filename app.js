@@ -11,7 +11,9 @@ const smooth=n=>{n=clamp(n);return n*n*(3-2*n)};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const portrait=()=>innerWidth<=700||matchMedia('(max-aspect-ratio:4/5)').matches;
 let mobile=portrait(),width=0,height=0,dpr=1,progress=0,target=0,frame=0,ready=false,visible=false,sceneVersion=0;
-let before,after,mask,tiles=[],stoneLayer,oldWidth=0;
+let before,after,mask,tiles=[],stoneLayer,oldWidth=0,staticFull=false,lastFrameTime=0;
+let lastReveal="",lastCue="";
+const cueElement=document.getElementById("cue");
 const layouts={
  desktop:{w:1672,h:941,
   walls:[[[150,414],[377,393],[377,687],[150,684]],[[377,367],[442,370],[442,690],[377,695]],[[442,448],[754,425],[754,695],[442,691]],[[377,366],[754,336],[754,378],[442,401]],[[754,337],[838,321],[838,708],[754,705]],[[838,358],[1336,341],[1336,781],[838,735]],[[1366,346],[1577,478],[1577,675],[1366,782]]],
@@ -42,7 +44,14 @@ function makeTiles(layout){let seed=123;const random=()=>{seed=seed*16807%214748
  const material=side.createLinearGradient(0,0,edge.width,edge.height);material.addColorStop(0,'#ac9877');material.addColorStop(.4,'#8e795a');material.addColorStop(1,'#4f4635');side.fillStyle=material;side.fillRect(0,0,edge.width,edge.height);
  side.globalCompositeOperation='source-atop';
  for(let grain=0;grain<90;grain++){side.fillStyle=grain%3?'rgba(37,31,22,.17)':'rgba(241,224,185,.22)';side.fillRect(random()*edge.width,random()*edge.height,.7+random()*1.7,.5+random())}
- tile.edge=edge;tile.depth=(mobile?9:12)+random()*(mobile?5:7);
+ tile.depth=(mobile?9:12)+random()*(mobile?5:7);
+ const pad=Math.ceil(tile.depth+18);tile.padding=pad;
+ const volume=document.createElement('canvas');volume.width=sprite.width+pad*2;volume.height=sprite.height+pad*2;
+ const v=volume.getContext('2d');v.save();v.shadowColor='rgba(12,15,10,.48)';v.shadowBlur=8;v.shadowOffsetX=tile.depth*.35;v.shadowOffsetY=tile.depth*.65;v.drawImage(edge,pad+tile.depth*.45,pad+tile.depth*.7);v.restore();
+ const layers=Math.ceil(tile.depth);for(let layer=layers;layer>0;layer--){const z=tile.depth*layer/layers;v.drawImage(edge,pad+z*.45,pad+z*.7)}
+ tile.volume=volume;tile.settled=false;
+ // Bake the bevel light into the face as well.
+ s.globalCompositeOperation='source-atop';s.save();s.clip(tile.path);s.lineWidth=1;s.strokeStyle='rgba(232,214,177,.3)';s.beginPath();s.moveTo(...tile.corners[0]);s.lineTo(...tile.corners[1]);s.stroke();s.restore();
  // Each photographic stone fragment enters from outside the frame, with its own trajectory.
  const fromRight=tile.cx>layout.w*.52;
  tile.originX=(fromRight?layout.w+100+random()*170:-100-random()*170)-tile.cx;
@@ -56,38 +65,51 @@ function measure(force=false){const nextMobile=portrait();const widthChanged=Mat
  // Capture the visible viewport only on real width/orientation changes.
  // Swipe and mobile browser chrome changes do not alter image geometry.
  height=Math.round(window.visualViewport?.height||innerHeight);
- root.style.setProperty('--scene-h',height+'px');root.style.setProperty('--vh',height/100+'px');dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+ root.style.setProperty('--scene-h',height+'px');root.style.setProperty('--vh',height/100+'px');dpr=Math.min(devicePixelRatio||1,mobile?1.5:1.75);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
  if(nextMobile!==mobile){mobile=nextMobile;loadScene()}updateProgress();schedule()}
 function loadImage(url){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=url})}
-async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{const [b,a]=await Promise.all([loadImage(`./assets/${name}-concrete.webp`),loadImage(`./assets/${name}-after.webp`)]);if(version!==sceneVersion)return;before=b;after=a;const layout=layouts[name];mask=makeMask(layout);tiles=makeTiles(layout);stoneLayer=document.createElement('canvas');stoneLayer.width=layout.w;stoneLayer.height=layout.h;ready=true;root.classList.add('ready');schedule()}catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
-function updateUI(){const reveal=smooth((progress-.67)/.17);root.style.setProperty('--reveal',reveal.toFixed(4));root.style.setProperty('--cue',(1-smooth(progress/.12)).toFixed(4));const next=reveal>.015;if(next!==visible){visible=next;root.classList.toggle('hero-visible',visible);header.hidden=!visible;copy.hidden=!visible;document.getElementById('bottom').hidden=!visible;document.getElementById('lower').hidden=!visible;document.getElementById('lower').inert=!visible;header.inert=!visible;copy.inert=!visible;header.setAttribute('aria-hidden',String(!visible));copy.setAttribute('aria-hidden',String(!visible))}document.getElementById('cue').style.visibility=progress>.15?'hidden':'visible'}
-function draw(){frame=0;progress=reduced?target:progress+(target-progress)*.26;if(Math.abs(target-progress)<.0001)progress=target;updateUI();if(ready){const layout=layouts[mobile?'mobile':'desktop'];const scale=Math.min(width/layout.w,height/layout.h),ox=(width-layout.w*scale)/2,oy=(height-layout.h*scale)/2;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);ctx.translate(ox,oy);ctx.scale(scale,scale);ctx.drawImage(before,0,0,layout.w,layout.h);
- const p=clamp(progress/.62);if(p>0){const stone=stoneLayer.getContext('2d');stone.clearRect(0,0,layout.w,layout.h);stone.globalCompositeOperation='source-over';if(p>=.999){stone.drawImage(after,0,0,layout.w,layout.h)}else{const placed=new Path2D();for(const tile of tiles){const t=clamp((p-tile.start)/.22);if(t>=1||(reduced&&t>0)){polygon(placed,tile.corners)}}stone.save();stone.clip(placed);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore();}
- stone.globalCompositeOperation='destination-in';stone.drawImage(mask,0,0);stone.globalCompositeOperation='source-over';ctx.drawImage(stoneLayer,0,0);
- // Flying stones are outside the facade mask. Their own clipped silhouettes travel intact.
- if(p<.999&&!reduced)for(const tile of tiles){
+async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{const [b,a]=await Promise.all([loadImage(`./assets/${name}-concrete.webp`),loadImage(`./assets/${name}-after.webp`)]);if(version!==sceneVersion)return;before=b;after=a;const layout=layouts[name];mask=makeMask(layout);tiles=makeTiles(layout);stoneLayer=document.createElement('canvas');stoneLayer.width=layout.w;stoneLayer.height=layout.h;staticFull=false;lastFrameTime=0;ready=true;root.classList.add('ready');schedule()}catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
+function updateUI(){
+ const reveal=smooth((progress-.67)/.17).toFixed(3),cue=(1-smooth(progress/.12)).toFixed(3);
+ if(reveal!==lastReveal){root.style.setProperty('--reveal',reveal);lastReveal=reveal}
+ if(cue!==lastCue){root.style.setProperty('--cue',cue);lastCue=cue}
+ const next=Number(reveal)>.015;
+ if(next!==visible){visible=next;root.classList.toggle('hero-visible',visible);header.hidden=!visible;copy.hidden=!visible;document.getElementById('bottom').hidden=!visible;document.getElementById('lower').hidden=!visible;document.getElementById('lower').inert=!visible;header.inert=!visible;copy.inert=!visible;header.setAttribute('aria-hidden',String(!visible));copy.setAttribute('aria-hidden',String(!visible))}
+ cueElement.style.visibility=progress>.15?'hidden':'visible';
+}
+function updateSettled(p,layout){
+ const stone=stoneLayer.getContext('2d');
+ if(p>=.999){if(!staticFull){stone.clearRect(0,0,layout.w,layout.h);stone.drawImage(after,0,0,layout.w,layout.h);stone.globalCompositeOperation='destination-in';stone.drawImage(mask,0,0);stone.globalCompositeOperation='source-over';for(const tile of tiles)tile.settled=true;staticFull=true}return}
+ let rebuild=staticFull;staticFull=false;const added=[];
+ for(const tile of tiles){const t=clamp((p-tile.start)/.22);const placed=t>=1||(reduced&&t>0);if(tile.settled&&!placed)rebuild=true;if(placed&&!tile.settled)added.push(tile);tile.settled=placed}
+ if(rebuild){stone.clearRect(0,0,layout.w,layout.h);for(const tile of tiles)if(tile.settled)stone.drawImage(tile.sprite,tile.x,tile.y)}
+ else for(const tile of added)stone.drawImage(tile.sprite,tile.x,tile.y);
+}
+function draw(now){
+ frame=0;const dt=lastFrameTime?Math.min(50,Math.max(1,now-lastFrameTime)):16.67;lastFrameTime=now;
+ const blend=1-Math.exp(-dt/55);progress=reduced?target:progress+(target-progress)*blend;
+ if(Math.abs(target-progress)<.0001)progress=target;updateUI();
+ if(ready){
+ const layout=layouts[mobile?'mobile':'desktop'];const scale=Math.min(width/layout.w,height/layout.h),ox=(width-layout.w*scale)/2,oy=(height-layout.h*scale)/2;
+ ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);ctx.translate(ox,oy);ctx.scale(scale,scale);
+ // The fixed photo remains in its GPU-composited DOM layer; only stones are redrawn.
+ const p=clamp(progress/.62);updateSettled(p,layout);ctx.drawImage(stoneLayer,0,0);
+ if(p>0&&p<.999&&!reduced)for(const tile of tiles){
  const t=clamp((p-tile.start)/.22);if(t<=0||t>=1)continue;
- const ease=1-Math.pow(1-t,2.4),remaining=1-ease;
- const seating=1-smooth((t-.78)/.22);
+ const ease=1-Math.pow(1-t,2.4),remaining=1-ease,seating=1-smooth((t-.78)/.22);
  const x=tile.cx+tile.originX*remaining;
  const y=tile.cy+tile.originY*remaining+Math.sin(t*Math.PI)*tile.arc-3*seating;
- ctx.save();ctx.translate(x,y);ctx.rotate(tile.turn*remaining);
- const size=1+remaining*.23;ctx.scale(size*(1-.08*seating),size*(1-.13*seating));
- const sx=tile.x-tile.cx,sy=tile.y-tile.cy;
- const depth=tile.depth*seating;
- // Contact shadow is cast by the volume, rather than a transparent flat cutout.
- ctx.save();ctx.shadowColor=`rgba(12,15,10,${.32+.22*seating})`;ctx.shadowBlur=3+depth*.45;ctx.shadowOffsetX=depth*.35;ctx.shadowOffsetY=depth*.7;
- ctx.drawImage(tile.edge,sx+depth*.45,sy+depth*.7);ctx.restore();
- // Stacked opaque edge silhouettes create an extruded, rough mineral side wall.
- const layers=Math.max(1,Math.ceil(depth));
- for(let layer=layers;layer>0;layer--){const z=depth*layer/layers;ctx.drawImage(tile.edge,sx+z*.45,sy+z*.7)}
- ctx.drawImage(tile.sprite,sx,sy);
- // Restrained bevel lighting separates the photographic face from its dark edge.
- if(seating>.01){ctx.save();ctx.globalAlpha=seating*.48;ctx.translate(-tile.cx,-tile.cy);ctx.clip(tile.path);ctx.lineWidth=1.2;ctx.strokeStyle='#e8d6b1';ctx.beginPath();ctx.moveTo(...tile.corners[0]);ctx.lineTo(...tile.corners[1]);ctx.stroke();ctx.restore()}
- ctx.restore();
+ const size=1+remaining*.23,sx=tile.x-tile.cx,sy=tile.y-tile.cy;
+ // A rotated conservative bound avoids drawing sprites outside the viewport.
+ const radius=(tile.volume.width+tile.volume.height)*size*.55;
+ if(x+radius < -ox/scale || x-radius > (width-ox)/scale || y+radius < -oy/scale || y-radius > (height-oy)/scale)continue;
+ ctx.save();ctx.translate(x,y);ctx.rotate(tile.turn*remaining);ctx.scale(size*(1-.08*seating),size*(1-.13*seating));
+ if(seating>.005){ctx.globalAlpha=seating;ctx.drawImage(tile.volume,sx-tile.padding,sy-tile.padding);ctx.globalAlpha=1}
+ ctx.drawImage(tile.sprite,sx,sy);ctx.restore();
  }
- }}
- if(progress!==target)schedule()}
+ }
+ if(progress!==target)schedule();else lastFrameTime=0;
+}
 function restart(){target=0;schedule()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
 const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>dialog.showModal());dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
