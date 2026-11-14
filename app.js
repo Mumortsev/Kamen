@@ -27,10 +27,11 @@ function makeMask(layout){const c=document.createElement('canvas');c.width=layou
 function makeTiles(layout){let seed=123;const random=()=>{seed=seed*16807%2147483647;return(seed-1)/2147483646};const {x,y,w,h}=layout.bounds;const points=[];const cols=layout.cols,rows=layout.rows;for(let r=0;r<=rows;r++){points[r]=[];for(let c=0;c<=cols;c++)points[r][c]=[x+(c+(c&&c<cols?(random()-.5)*.56:0))*w/cols,y+(r+(r&&r<rows?(random()-.5)*.55:0))*h/rows]}
  const result=[];for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){const path=new Path2D();polygon(path,[points[r][c],points[r][c+1],points[r+1][c+1],points[r+1][c]]);result.push({path,corners:[points[r][c],points[r][c+1],points[r+1][c+1],points[r+1][c]],start:(1-(r+.5)/rows)*.75+c/cols*.07+random()*.035})}return result}
 function schedule(){if(!frame)frame=requestAnimationFrame(draw)}
-function updateProgress(){const distance=Math.max(1,height*2.2);target=clamp(scrollY/distance);schedule()}
+function updateProgress(){schedule()}
 function measure(force=false){const nextMobile=portrait();const widthChanged=Math.abs(innerWidth-oldWidth)>2;if(!force&&!widthChanged)return;oldWidth=innerWidth;width=innerWidth;
- // Lock to the large viewport. Mobile URL-bar height changes never resize the scene.
- const probe=document.createElement('div');probe.style.cssText='position:fixed;pointer-events:none;visibility:hidden;height:100lvh;width:1px';document.body.append(probe);height=Math.round(probe.getBoundingClientRect().height)||innerHeight;probe.remove();
+ // Capture the visible viewport only on real width/orientation changes.
+ // Swipe and mobile browser chrome changes do not alter image geometry.
+ height=Math.round(window.visualViewport?.height||innerHeight);
  root.style.setProperty('--scene-h',height+'px');root.style.setProperty('--vh',height/100+'px');dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
  if(nextMobile!==mobile){mobile=nextMobile;loadScene()}updateProgress();schedule()}
 function loadImage(url){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=url})}
@@ -40,7 +41,15 @@ function draw(){frame=0;progress=reduced?target:progress+(target-progress)*.18;i
  const p=clamp((progress-.015)/.745);if(p>0){const stone=stoneLayer.getContext('2d');stone.clearRect(0,0,layout.w,layout.h);stone.globalCompositeOperation='source-over';if(p>=.999){stone.drawImage(after,0,0,layout.w,layout.h)}else{const placed=new Path2D();for(const tile of tiles){const t=clamp((p-tile.start)/.12);if(t>=1){polygon(placed,tile.corners)}}stone.save();stone.clip(placed);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore();if(!reduced)for(const tile of tiles){const t=clamp((p-tile.start)/.12);if(t<=0||t>=1)continue;stone.save();stone.clip(tile.path);stone.globalAlpha=smooth(t);stone.drawImage(after,0,0,layout.w,layout.h);stone.restore()}}
  stone.globalCompositeOperation='destination-in';stone.drawImage(mask,0,0);stone.globalCompositeOperation='source-over';ctx.drawImage(stoneLayer,0,0)}}
  if(progress!==target)schedule()}
-function restart(){scrollTo({top:0,behavior:reduced?'instant':'smooth'})}
+function restart(){target=0;schedule()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
 const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>dialog.showModal());dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
-addEventListener('scroll',updateProgress,{passive:true});addEventListener('resize',()=>measure(),{passive:true});addEventListener('orientationchange',()=>setTimeout(()=>measure(true),300));measure(true);loadScene();
+// Capture input while the page itself stays fixed. Dialog gestures remain native.
+let touchX=0,touchY=0,touchActive=false;
+function advance(delta){if(!ready||dialog.open)return;target=clamp(target+delta);schedule()}
+scene.addEventListener('wheel',event=>{if(dialog.open||event.ctrlKey)return;event.preventDefault();const unit=event.deltaMode===1?16:event.deltaMode===2?height:1;advance(event.deltaY*unit/Math.max(1,height*2));},{passive:false});
+scene.addEventListener('touchstart',event=>{if(dialog.open||event.touches.length!==1){touchActive=false;return}touchX=event.touches[0].clientX;touchY=event.touches[0].clientY;touchActive=true},{passive:true});
+scene.addEventListener('touchmove',event=>{if(!touchActive||dialog.open||event.touches.length!==1)return;const touch=event.touches[0];const deltaY=touchY-touch.clientY;const deltaX=touchX-touch.clientX;touchY=touch.clientY;touchX=touch.clientX;if(Math.abs(deltaY)>=Math.abs(deltaX)){event.preventDefault();advance(deltaY/Math.max(1,height*1.25))}},{passive:false});
+scene.addEventListener('touchend',()=>{touchActive=false},{passive:true});scene.addEventListener('touchcancel',()=>{touchActive=false},{passive:true});
+addEventListener('keydown',event=>{if(dialog.open||event.target.closest('a,button,input,textarea,select'))return;const amounts={ArrowDown:.055,ArrowUp:-.055,PageDown:.25,PageUp:-.25,' ':.22};if(event.key==='Home'){event.preventDefault();restart()}else if(event.key==='End'){event.preventDefault();target=1;schedule()}else if(event.key in amounts){event.preventDefault();advance(amounts[event.key])}});
+addEventListener('resize',()=>measure(),{passive:true});addEventListener('orientationchange',()=>setTimeout(()=>measure(true),300));measure(true);loadScene();
