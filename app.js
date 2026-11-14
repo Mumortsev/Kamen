@@ -1,5 +1,6 @@
 'use strict';
 const root=document.documentElement;
+let pageReleased=false;
 const story=document.getElementById('story');
 const scene=document.getElementById('hero');
 const canvas=document.getElementById('cladding');
@@ -110,18 +111,41 @@ function draw(now){
  }
  if(progress!==target)schedule();else lastFrameTime=0;
 }
-function restart(){target=0;schedule()}
+function restart(){pageReleased=false;root.classList.remove('page-scroll','past-hero','at-estimate');window.scrollTo({top:0,behavior:'instant'});target=0;schedule()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
-const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>dialog.showModal());
+const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>jumpTo('estimate'));
 for(const trigger of document.querySelectorAll('[data-open]'))trigger.addEventListener('click',()=>document.getElementById(trigger.dataset.open).showModal());
 for(const panel of document.querySelectorAll('dialog')){panel.querySelector('.close').addEventListener('click',()=>panel.close());panel.addEventListener('click',event=>{if(event.target!==panel)return;const b=panel.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)panel.close()})}
 document.getElementById('demo-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('demo-status').hidden=false});
 // Capture input while the page itself stays fixed. Dialog gestures remain native.
 let touchX=0,touchY=0,touchActive=false;
-function advance(delta){if(!ready||dialog.open)return;target=clamp(target+delta);schedule()}
-scene.addEventListener('wheel',event=>{if(dialog.open||event.ctrlKey)return;event.preventDefault();const unit=event.deltaMode===1?16:event.deltaMode===2?height:1;advance(event.deltaY*unit/Math.max(1,height*1.5));},{passive:false});
+function advance(delta){if(!ready||document.querySelector('dialog[open]'))return;if(target>=.999&&progress>=.98&&delta>0){unlockPage();window.scrollBy({top:Math.max(30,Math.min(delta*height,180)),behavior:'instant'});return}target=clamp(target+delta);schedule()}
+scene.addEventListener('wheel',event=>{if(pageReleased||document.querySelector('dialog[open]')||event.ctrlKey)return;event.preventDefault();const unit=event.deltaMode===1?16:event.deltaMode===2?height:1;advance(event.deltaY*unit/Math.max(1,height*1.5));},{passive:false});
 scene.addEventListener('touchstart',event=>{if(dialog.open||event.touches.length!==1){touchActive=false;return}touchX=event.touches[0].clientX;touchY=event.touches[0].clientY;touchActive=true},{passive:true});
-scene.addEventListener('touchmove',event=>{if(!touchActive||dialog.open||event.touches.length!==1)return;const touch=event.touches[0];const deltaY=touchY-touch.clientY;const deltaX=touchX-touch.clientX;touchY=touch.clientY;touchX=touch.clientX;if(Math.abs(deltaY)>=Math.abs(deltaX)){event.preventDefault();advance(deltaY/Math.max(1,height*.95))}},{passive:false});
+scene.addEventListener('touchmove',event=>{if(!touchActive||dialog.open||event.touches.length!==1)return;const touch=event.touches[0];const deltaY=touchY-touch.clientY;const deltaX=touchX-touch.clientX;touchY=touch.clientY;touchX=touch.clientX;if(Math.abs(deltaY)>=Math.abs(deltaX)){event.preventDefault();if(pageReleased)window.scrollBy({top:deltaY,behavior:'instant'});else advance(deltaY/Math.max(1,height*.95))}},{passive:false});
 scene.addEventListener('touchend',()=>{touchActive=false},{passive:true});scene.addEventListener('touchcancel',()=>{touchActive=false},{passive:true});
-addEventListener('keydown',event=>{if(dialog.open||event.target.closest('a,button,input,textarea,select'))return;const amounts={ArrowDown:.055,ArrowUp:-.055,PageDown:.25,PageUp:-.25,' ':.22};if(event.key==='Home'){event.preventDefault();restart()}else if(event.key==='End'){event.preventDefault();target=1;schedule()}else if(event.key in amounts){event.preventDefault();advance(amounts[event.key])}});
+addEventListener('keydown',event=>{if(pageReleased||document.querySelector('dialog[open]')||event.target.closest('a,button,input,textarea,select'))return;const amounts={ArrowDown:.055,ArrowUp:-.055,PageDown:.25,PageUp:-.25,' ':.22};if(event.key==='Home'){event.preventDefault();restart()}else if(event.key==='End'){event.preventDefault();target=1;schedule()}else if(event.key in amounts){event.preventDefault();advance(amounts[event.key])}});
 addEventListener('resize',()=>measure(),{passive:true});addEventListener('orientationchange',()=>setTimeout(()=>measure(true),300));measure(true);loadScene();
+
+// Conversion path: task → shortlist → details → a transparent demo request.
+const estimateForm=document.getElementById('estimate-form');
+const materialSelect=document.getElementById('estimate-material');
+const taskNames={facade:'Фасад',plinth:'Цоколь',paving:'Мощение',landscape:'Ландшафт'};
+function unlockPage(){if(pageReleased)return;pageReleased=true;root.classList.add('page-scroll');syncPagePosition()}
+function syncPagePosition(){root.classList.toggle('past-hero',pageReleased&&scrollY>height*.55)}
+function jumpTo(id){const section=document.getElementById(id==='estimate'&&mobile?'estimate-form':id);if(!section)return;target=1;progress=1;schedule();unlockPage();requestAnimationFrame(()=>section.scrollIntoView({behavior:reduced?'instant':'smooth',block:'start'}))}
+function summarizeEstimate(){const data=new FormData(estimateForm);const parts=[taskNames[data.get('task')]||'Подбор'];const material=data.get('material');parts.push(material==='Нужна помощь с выбором'?'помощь с выбором':material);if(data.get('area'))parts.push(data.get('area')+' м²');if(data.get('location'))parts.push(data.get('location'));if(data.has('delivery'))parts.push('доставка');if(data.has('installation'))parts.push('монтаж');document.getElementById('estimate-summary').textContent=parts.join(' · ');return parts.join(' · ')}
+function chooseTask(task){const radio=estimateForm.querySelector(`input[name="task"][value="${task}"]`);if(radio)radio.checked=true;summarizeEstimate()}
+function filterMaterials(task){for(const button of document.querySelectorAll('[data-filter]')){const selected=button.dataset.filter===task;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected))}let count=0;for(const card of document.querySelectorAll('.product-card')){const match=task==='all'||card.dataset.uses.split(' ').includes(task);card.hidden=!match;if(match)count++}document.getElementById('filter-context').textContent=task==='all'?'Найдите подходящую фактуру или оставьте подбор специалисту.':`${taskNames[task]}: ${count} ${count===1?'вариант':'варианта'} для начала подбора. Применение уточним по вашему объекту.`}
+for(const button of document.querySelectorAll('[data-jump]'))button.addEventListener('click',()=>jumpTo(button.dataset.jump));
+for(const button of document.querySelectorAll('[data-filter]'))button.addEventListener('click',()=>{filterMaterials(button.dataset.filter);if(button.dataset.filter!=='all')chooseTask(button.dataset.filter)});
+for(const button of document.querySelectorAll('[data-select-use]'))button.addEventListener('click',()=>{const use=button.dataset.selectUse;chooseTask(use);filterMaterials(use);jumpTo(button.closest('.inspiration')?'estimate':'materials')});
+for(const button of document.querySelectorAll('[data-select-material]'))button.addEventListener('click',()=>{materialSelect.value=button.dataset.selectMaterial;if(materialSelect.value==='Галька и декоративный щебень')chooseTask('landscape');summarizeEstimate();jumpTo('estimate')});
+for(const link of document.querySelectorAll('[data-back-top]'))link.addEventListener('click',event=>{event.preventDefault();target=1;progress=1;schedule();unlockPage();window.scrollTo({top:0,behavior:reduced?'instant':'smooth'})});
+estimateForm.addEventListener('input',()=>{summarizeEstimate();document.getElementById('estimate-result').hidden=true});
+estimateForm.addEventListener('change',summarizeEstimate);
+estimateForm.addEventListener('submit',event=>{event.preventDefault();const result=document.getElementById('estimate-result');document.getElementById('estimate-result-details').textContent=summarizeEstimate();result.hidden=false;result.scrollIntoView({behavior:reduced?'instant':'smooth',block:'center'})});
+document.getElementById('edit-estimate').addEventListener('click',()=>{document.getElementById('estimate-result').hidden=true;materialSelect.focus()});
+addEventListener('scroll',syncPagePosition,{passive:true});
+const estimateObserver=new IntersectionObserver(entries=>{for(const entry of entries)root.classList.toggle('at-estimate',entry.isIntersecting)},{rootMargin:'-10% 0px -20% 0px'});estimateObserver.observe(document.getElementById('estimate'));
+summarizeEstimate();
