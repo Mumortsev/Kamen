@@ -77,3 +77,10 @@ html.page-scroll{scroll-padding-top:16px}.page-section{scroll-margin-top:0}#esti
 .calc-total.long strong{font-size:clamp(26px,2.5vw,40px)}.calc-total.very-long strong{font-size:28px}
 html.page-scroll{scroll-padding-top:88px}.page-section,.calculator-section{scroll-margin-top:-72px}#estimate-form,#calc-result{scroll-margin-top:8px}
 @media(max-width:700px),(max-aspect-ratio:4/5){html.page-scroll{scroll-padding-top:78px}.page-section,.calculator-section{scroll-margin-top:-70px}.calc-total.long strong{font-size:34px}.calc-total.very-long strong{font-size:26px}}
+
+/* Keep stationary facade and moving stones on separate, tightly bounded layers. */
+#cladding-settled{position:absolute;display:block;pointer-events:none;opacity:0}
+.ready #cladding-settled{opacity:1}
+#cladding{bottom:auto;pointer-events:none}
+.application-image:not([data-media-ready]),.product-texture:not([data-media-ready]),.calc-swatch:not([data-media-ready]),.calc-result-texture:not([data-media-ready]){background-image:none!important}
+@media(max-width:700px),(max-aspect-ratio:4/5){.secondary{backdrop-filter:none;background:#183425e6}.site-nav{backdrop-filter:none;background:#f3f1e9}}
