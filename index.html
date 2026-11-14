@@ -1,21 +1,33 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#d4cfc4">
-<title>Камень. Характер вашего дома</title><meta name="description" content="Демонстрационная фотореалистичная сцена облицовки дома натуральным камнем при прокрутке.">
-<link rel="preload" as="image" href="./assets/house-stone.webp"><link rel="preload" as="image" href="./assets/house-bare.webp"><link rel="stylesheet" href="./style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#343b33">
+<title>КаменьТорг23 — природный камень для вашего дома</title><meta name="description" content="Природный камень для облицовки, мощения и ландшафта. Доставка и монтаж в Краснодаре.">
+<link rel="preload" as="image" href="./assets/desktop-before.webp" media="(min-width: 701px)"><link rel="preload" as="image" href="./assets/mobile-before.webp" media="(max-width: 700px)"><link rel="preload" as="font" type="font/ttf" href="./assets/fonts/hibiny-regular.ttf" crossorigin><link rel="stylesheet" href="./style.css">
 </head>
 <body>
 <main id="story">
-<section class="scene" aria-label="Прокручивайте страницу: фасад дома постепенно покрывается природным камнем">
-<img id="poster" src="./assets/house-stone.webp" alt="Дом с фасадом из натурального песчаника, фотореалистичная визуализация">
-<canvas id="cladding" aria-hidden="true"></canvas><div class="shade"></div>
-<header><a href="#" id="brand" aria-label="Вернуться в начало">КАМЕНЬ<span>ЕСТЕСТВЕННЫЙ ХАРАКТЕР</span></a><span class="concept">ФАСАД / КОНЦЕПТ 01</span><button id="restart" type="button">Заново <span>↗</span></button></header>
-<div class="headline"><span class="eyebrow">ПРИРОДНЫЙ КАМЕНЬ</span><h1>Дом обретает<br><em>характер.</em></h1><p>Один дом. Два ощущения.<br>Прокрутите, чтобы увидеть разницу.</p></div>
-<footer><div class="prompt"><span class="arrow">↓</span><span>ЛИСТАЙТЕ<br>КАМЕНЬ ЗА КАМНЕМ</span></div><div class="progress"><div class="numbers"><span id="stage">ДО ОБЛИЦОВКИ</span><span id="percentage">0%</span></div><div class="track"><div id="fill"></div></div></div></footer>
-<div class="note">ДЕМОНСТРАЦИОННАЯ ВИЗУАЛИЗАЦИЯ</div><div id="load-message" role="status">Подготавливаем материал…</div>
-<noscript><p class="noscript">Для анимации включите JavaScript. Показан готовый каменный фасад.</p></noscript>
+<section class="scene" id="hero" aria-label="Дом облицовывается природным камнем при прокрутке">
+<picture class="poster"><source media="(max-width:700px)" srcset="./assets/mobile-before.webp"><img src="./assets/desktop-before.webp" alt="Одноэтажный кирпичный дом с вальмовой крышей, вид справа"></picture>
+<canvas id="cladding" aria-hidden="true"></canvas>
+<div class="hero-shade" aria-hidden="true"></div>
+<header class="reveal" id="header" inert>
+<a class="brand" href="#" aria-label="КаменьТорг23 — в начало"><svg viewBox="0 0 42 46" aria-hidden="true"><path d="M21 2 40 12v22L21 44 2 34V12Z M21 2v42 M2 12l19 11 19-11 M2 34l19-11 19 11"/></svg><span>КАМЕНЬТОРГ<span class="brand-number">23</span><small>ПРИРОДА. ФОРМА. ХАРАКТЕР.</small></span></a>
+<nav aria-label="Навигация"><a href="https://каменьторг23.рф/catalog" target="_blank" rel="noopener">Каталог</a><a href="https://каменьторг23.рф/portfolio" target="_blank" rel="noopener">Наши работы</a><a href="https://каменьторг23.рф/montag" target="_blank" rel="noopener">Монтаж</a></nav>
+<a class="phone" href="tel:+79189927987">+7 918 992-79-87 <span>↗</span></a>
+</header>
+<div class="hero-copy reveal" id="copy" inert>
+<p class="eyebrow"><span></span> ПРИРОДНЫЙ КАМЕНЬ · КРАСНОДАР</p>
+<h1>Природный камень.<br><span>Характер вашего дома.</span></h1>
+<p class="description">Для фасадов, мощения и ландшафта.<br>Со склада в Краснодаре. С доставкой и монтажом.</p>
+<div class="actions"><button class="primary" id="request" type="button">Рассчитать мой объект <span>↗</span></button><a class="secondary" href="https://каменьторг23.рф/catalog" target="_blank" rel="noopener">Выбрать камень <span>↗</span></a></div>
+</div>
+<div id="cue" class="cue"><div class="gesture" aria-hidden="true"><span></span></div><p><span class="desktop-cue">Прокрутите вниз</span><span class="mobile-cue">Свайпните вверх</span><small>И ПОСМОТРИТЕ, КАК МЕНЯЕТСЯ ДОМ</small></p></div>
+<div class="bottom-line reveal" id="bottom"><button id="restart" type="button">↺ Посмотреть превращение снова</button><span>ВИЗУАЛИЗАЦИЯ ПРИМЕНЕНИЯ КАМНЯ</span></div>
+<div id="loader" class="loader" role="status">Загружаем фактуру…</div>
+<noscript><style>.reveal{opacity:1!important;visibility:visible!important;transform:none!important}.cue,.loader{display:none!important}</style></noscript>
 </section>
 </main>
+<dialog id="contact"><button class="close" aria-label="Закрыть" type="button">×</button><span class="dialog-label">ВАШ БУДУЩИЙ ФАСАД</span><h2>Начнем с вашего объекта.</h2><p>Расскажите, что хотите облицевать, укажите примерную площадь или отправьте фото. Обсудим материал, доставку и монтаж.</p><a class="primary" href="https://t.me/Kamentorg23" target="_blank" rel="noopener">Написать в Telegram <span>↗</span></a><a class="dialog-phone" href="tel:+79189927987">Позвонить: +7 918 992-79-87</a></dialog>
 <script src="./app.js"></script>
 </body></html>
