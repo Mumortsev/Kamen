@@ -84,3 +84,10 @@ html.page-scroll{scroll-padding-top:88px}.page-section,.calculator-section{scrol
 #cladding{bottom:auto;pointer-events:none}
 .application-image:not([data-media-ready]),.product-texture:not([data-media-ready]),.calc-swatch:not([data-media-ready]),.calc-result-texture:not([data-media-ready]){background-image:none!important}
 @media(max-width:700px),(max-aspect-ratio:4/5){.secondary{backdrop-filter:none;background:#183425e6}.site-nav{backdrop-filter:none;background:#f3f1e9}}
+
+/* Brand wordmark: the name replaces the former numeric symbol. */
+.brand-word{font-size:17px;font-weight:600;letter-spacing:.015em;white-space:nowrap}
+.brand small{font-size:6px;font-weight:400;letter-spacing:.16em;margin-top:8px}
+.site-brand>span{font-size:14px;font-weight:600;letter-spacing:.015em;white-space:nowrap}
+.site-brand small{font-weight:400;letter-spacing:.14em}
+@media(max-width:700px),(max-aspect-ratio:4/5){.brand-word{font-size:13px}.brand small{font-size:5px;margin-top:6px}.site-brand>span{font-size:12px}.phone{flex-shrink:0}}
