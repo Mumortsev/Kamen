@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#343b33"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <title>ФАКТУРА 23 — природный камень для вашего дома</title><meta name="description" content="Природный камень для облицовки, мощения и ландшафта. Доставка и монтаж в Краснодаре.">
-<link rel="preload" as="image" href="./assets/desktop-concrete.webp" media="(min-width: 701px)"><link rel="preload" as="image" href="./assets/mobile-concrete.webp" media="(max-width: 700px)"><link rel="preload" as="font" type="font/ttf" href="./assets/fonts/geologica-500.ttf" crossorigin><style id="hero-styles">
+<link rel="preload" as="image" href="./assets/desktop-space-concrete.webp" media="(min-width: 701px)"><link rel="preload" as="image" href="./assets/mobile-concrete.webp" media="(max-width: 700px)"><link rel="preload" as="font" type="font/ttf" href="./assets/fonts/geologica-500.ttf" crossorigin><style id="hero-styles">
 @font-face{font-family:Geologica;src:url("./assets/fonts/geologica-400.ttf") format("truetype");font-weight:400;font-display:swap}@font-face{font-family:Geologica;src:url("./assets/fonts/geologica-500.ttf") format("truetype");font-weight:500;font-display:swap}@font-face{font-family:Geologica;src:url("./assets/fonts/geologica-600.ttf") format("truetype");font-weight:600;font-display:swap}
 :root{color-scheme:light;--ink:#23352d;--reveal:0;--cue:1;--scene-h:100vh}*{box-sizing:border-box}html,body{position:fixed;inset:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none}html{scrollbar-width:none}html::-webkit-scrollbar{display:none}body{margin:0;background:#343b33;color:var(--ink);font-family:Geologica,Arial,sans-serif}[hidden]{display:none!important}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible{outline:2px solid #d3c9b0;outline-offset:6px}
 #story{position:fixed;inset:0;height:100%;overflow:hidden}.scene{position:fixed;inset:0 auto auto 0;width:100%;height:var(--scene-h);overflow:hidden;isolation:isolate;touch-action:none;background:#aeb3a7}.scene::before{content:"";position:absolute;inset:-25px;background:url('./assets/desktop-concrete.webp') center/cover;filter:blur(20px);z-index:-1}.poster,.poster img,#cladding,.hero-shade{position:absolute;inset:0;width:100%;height:100%}.poster{display:block;overflow:hidden}.poster img{display:block;object-fit:cover;object-position:center;max-width:100%;max-height:100%}#cladding{display:block;opacity:0}.ready #cladding{opacity:1}.hero-shade{pointer-events:none;opacity:var(--reveal);background:linear-gradient(180deg,#eef2ea75 0%,#f3f1e955 29%,transparent 47%,transparent 54%,#08140f75 75%,#08140ff2 100%)}
@@ -38,12 +38,26 @@ nav button{border:0;background:none;padding:8px 0;color:inherit;font-size:12px;f
 .secondary{cursor:pointer}.demo-note{font-size:10px;line-height:1.6;color:#566151}.contact-detail{font-size:13px;line-height:1.8;margin:18px 0}.demo-form{display:grid;gap:13px;margin-top:20px}.demo-form label{display:grid;gap:6px;font-size:10px}.demo-form input{font:13px Geologica,Arial,sans-serif;width:100%;border:1px solid #c6ccbe;border-radius:3px;background:#fff9;padding:13px;color:#23352d}.demo-form .primary{margin-top:4px}.demo-status{font-size:12px;line-height:1.7;color:#284b36;margin-bottom:0}.materials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.material-card{font-size:10px;line-height:1.6}.material-swatch{height:85px;border-radius:3px;margin-bottom:10px;background:repeating-linear-gradient(12deg,#b8a88d 0 7px,#c7b99c 8px 14px,#9b927e 15px 17px)}.material-card:nth-child(2) .material-swatch{background:repeating-linear-gradient(-15deg,#aaa58e 0 9px,#777b6c 10px 16px,#c0bda4 17px 24px)}.material-card:nth-child(3) .material-swatch{background:repeating-linear-gradient(6deg,#6c7068 0 7px,#92978b 8px 14px,#4b514b 15px 19px)}
 @media(max-width:700px),(max-aspect-ratio:4/5){h1{font-size:clamp(28px,7.15vw,43px);line-height:1.13}.brand-mark{font-size:29px;margin-right:2px}.brand-word{font-size:12px}.brand small{font-size:4.5px}.phone{font-size:9px;gap:5px}.phone small{font-size:5px}.hero-copy{top:22%}}
 
+/* Desktop editorial composition: type sits in actual negative space, house at right. */
+@media(min-width:701px) and (min-aspect-ratio:4/5){
+.hero-copy{left:6%;right:auto;top:25%;width:28%;max-width:540px}
+h1{font-size:clamp(36px,3.3vw,62px);line-height:1.09;letter-spacing:-.055em}
+h1>span{display:block;margin-top:.16em}
+.hero-lower{left:6%;right:5%;bottom:10.5%;gap:35px}
+.description{flex:0 0 30%;max-width:440px;line-height:1.75}
+.hero-shade{background:linear-gradient(180deg,#f2f5eb26 0%,transparent 38%,transparent 57%,#0a1b1466 79%,#0a1b14d9 100%)}
+}
+@media(min-width:701px) and (min-aspect-ratio:4/5) and (max-height:620px){
+.hero-copy{top:24%;width:28%}h1{font-size:clamp(29px,2.8vw,40px);line-height:1.05}.eyebrow{font-size:7px;margin-bottom:12px}
+.hero-lower{bottom:10%;gap:25px}.description{font-size:10px;line-height:1.6}.primary,.secondary{font-size:10px;padding:11px 15px;min-height:40px}
+}
+
 </style>
 </head>
 <body>
 <main id="story">
 <section class="scene" id="hero" aria-label="Дом облицовывается природным камнем при прокрутке">
-<picture class="poster"><source media="(max-width:700px), (max-aspect-ratio:4/5)" srcset="./assets/mobile-concrete.webp"><img src="./assets/desktop-concrete.webp" alt="Одноэтажный дом с фасадом из темного бетона, вид справа"></picture>
+<picture class="poster"><source media="(max-width:700px), (max-aspect-ratio:4/5)" srcset="./assets/mobile-concrete.webp"><img src="./assets/desktop-space-concrete.webp" alt="Одноэтажный дом с фасадом из темного бетона, вид справа"></picture>
 <canvas id="cladding" aria-hidden="true"></canvas>
 <div class="hero-shade" aria-hidden="true"></div>
 <header class="reveal" id="header" inert hidden>
@@ -84,9 +98,9 @@ let lastReveal="",lastCue="";
 const cueElement=document.getElementById("cue");
 const layouts={
  desktop:{w:1672,h:941,
-  walls:[[[150,414],[377,393],[377,687],[150,684]],[[377,367],[442,370],[442,690],[377,695]],[[442,448],[754,425],[754,695],[442,691]],[[377,366],[754,336],[754,378],[442,401]],[[754,337],[838,321],[838,708],[754,705]],[[838,358],[1336,341],[1336,781],[838,735]],[[1366,346],[1577,478],[1577,675],[1366,782]]],
-  holes:[[[225,450],[366,438],[366,645],[225,647]],[[575,433],[717,426],[717,688],[575,691]],[[943,400],[1208,384],[1208,658],[943,664]],[[1471,466],[1492,474],[1492,605],[1471,602]],[[1526,510],[1542,517],[1542,610],[1526,608]],[[788,444],[801,443],[801,501],[788,501]],[[1310,326],[1328,325],[1346,802],[1330,804]],[[1280,330],[1294,329],[1314,372],[1302,458],[1308,784],[1297,784],[1289,460],[1300,371]],[[149,651],[235,629],[311,656],[376,681],[376,727],[149,728]],[[886,680],[953,669],[1023,694],[1085,673],[1174,681],[1256,706],[1310,752],[1310,820],[885,820]]],
-  bounds:{x:140,y:320,w:1440,h:490},cols:32,rows:18},
+  walls:[[[671,509],[825,486],[825,689],[671,688]],[[825,474],[871,477],[871,688],[825,691]],[[871,518],[1074,503],[1074,689],[871,688]],[[825,474],[1074,452],[1074,475],[871,496]],[[1074,452],[1135,436],[1135,694],[1074,692]],[[1135,473],[1457,443],[1457,757],[1135,720]],[[1475,478],[1615,557],[1615,678],[1475,758]]],
+  holes:[[[719,523],[825,516],[825,652],[719,655]],[[956,516],[1048,508],[1048,681],[956,684]],[[1200,490],[1369,480],[1369,662],[1200,666]],[[1540,535],[1555,541],[1555,630],[1540,626]],[[1576,554],[1589,563],[1589,641],[1576,637]],[[1097,497],[1110,497],[1110,539],[1097,539]],[[1421,430],[1431,431],[1441,751],[1430,751]],[[1462,458],[1473,461],[1482,760],[1470,760]],[[668,668],[720,652],[774,658],[825,684],[825,737],[668,737]],[[1168,700],[1219,678],[1278,701],[1329,690],[1384,719],[1404,747],[1404,780],[1168,780]]],
+  bounds:{x:665,y:435,w:954,h:330},cols:30,rows:17},
  mobile:{w:941,h:1672,
   walls:[[[82,855],[220,839],[220,1002],[82,1008]],[[220,818],[275,823],[275,1005],[220,1008]],[[275,859],[432,847],[432,1010],[275,1005]],[[220,817],[432,800],[432,839],[275,859]],[[432,800],[479,793],[479,1017],[432,1015]],[[479,817],[735,795],[735,1068],[479,1037]],[[759,820],[880,902],[880,1027],[759,1065]]],
   holes:[[[131,865],[211,857],[211,980],[131,982]],[[335,864],[403,859],[403,1004],[335,1004]],[[541,835],[682,828],[682,985],[541,985]],[[827,899],[838,907],[838,968],[827,964]],[[856,925],[864,931],[864,971],[856,969]],[[453,861],[462,859],[462,894],[453,895]],[[730,789],[741,789],[753,1068],[741,1068]],[[714,791],[724,789],[739,822],[734,887],[739,1066],[730,1066],[724,888],[731,822]],[[81,981],[121,970],[174,987],[219,1002],[219,1047],[81,1047]],[[501,1002],[562,986],[617,1001],[661,986],[714,1016],[735,1042],[735,1090],[501,1090]]],
@@ -136,7 +150,7 @@ function measure(force=false){const nextMobile=portrait();const widthChanged=Mat
  root.style.setProperty('--scene-h',height+'px');root.style.setProperty('--vh',height/100+'px');dpr=Math.min(devicePixelRatio||1,mobile?1.5:1.75);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
  if(nextMobile!==mobile){mobile=nextMobile;loadScene()}updateProgress();schedule()}
 function loadImage(url){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=url})}
-async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{const [b,a]=await Promise.all([loadImage(`./assets/${name}-concrete.webp`),loadImage(`./assets/${name}-after.webp`)]);if(version!==sceneVersion)return;before=b;after=a;const layout=layouts[name];mask=makeMask(layout);tiles=makeTiles(layout);stoneLayer=document.createElement('canvas');stoneLayer.width=layout.w;stoneLayer.height=layout.h;staticFull=false;lastFrameTime=0;ready=true;root.classList.add('ready');schedule()}catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
+async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{const [b,a]=await Promise.all([loadImage(`./assets/${name==='desktop'?'desktop-space':name}-concrete.webp`),loadImage(`./assets/${name==='desktop'?'desktop-space':name}-after.webp`)]);if(version!==sceneVersion)return;before=b;after=a;const layout=layouts[name];mask=makeMask(layout);tiles=makeTiles(layout);stoneLayer=document.createElement('canvas');stoneLayer.width=layout.w;stoneLayer.height=layout.h;staticFull=false;lastFrameTime=0;ready=true;root.classList.add('ready');schedule()}catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
 function updateUI(){
  const reveal=smooth((progress-.67)/.17).toFixed(3),cue=(1-smooth(progress/.12)).toFixed(3);
  if(reveal!==lastReveal){root.style.setProperty('--reveal',reveal);lastReveal=reveal}

@@ -31,3 +31,17 @@ h1,h1>span{font-weight:500;letter-spacing:-.06em}h1{font-size:clamp(40px,4.45vw,
 nav button{border:0;background:none;padding:8px 0;color:inherit;font-size:12px;font-family:inherit}.phone{display:flex;align-items:center;gap:10px;border:0;background:none;color:inherit;font-family:inherit;padding:8px 0}.phone small{font-size:7px;letter-spacing:.1em;opacity:.6}
 .secondary{cursor:pointer}.demo-note{font-size:10px;line-height:1.6;color:#566151}.contact-detail{font-size:13px;line-height:1.8;margin:18px 0}.demo-form{display:grid;gap:13px;margin-top:20px}.demo-form label{display:grid;gap:6px;font-size:10px}.demo-form input{font:13px Geologica,Arial,sans-serif;width:100%;border:1px solid #c6ccbe;border-radius:3px;background:#fff9;padding:13px;color:#23352d}.demo-form .primary{margin-top:4px}.demo-status{font-size:12px;line-height:1.7;color:#284b36;margin-bottom:0}.materials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.material-card{font-size:10px;line-height:1.6}.material-swatch{height:85px;border-radius:3px;margin-bottom:10px;background:repeating-linear-gradient(12deg,#b8a88d 0 7px,#c7b99c 8px 14px,#9b927e 15px 17px)}.material-card:nth-child(2) .material-swatch{background:repeating-linear-gradient(-15deg,#aaa58e 0 9px,#777b6c 10px 16px,#c0bda4 17px 24px)}.material-card:nth-child(3) .material-swatch{background:repeating-linear-gradient(6deg,#6c7068 0 7px,#92978b 8px 14px,#4b514b 15px 19px)}
 @media(max-width:700px),(max-aspect-ratio:4/5){h1{font-size:clamp(28px,7.15vw,43px);line-height:1.13}.brand-mark{font-size:29px;margin-right:2px}.brand-word{font-size:12px}.brand small{font-size:4.5px}.phone{font-size:9px;gap:5px}.phone small{font-size:5px}.hero-copy{top:22%}}
+
+/* Desktop editorial composition: type sits in actual negative space, house at right. */
+@media(min-width:701px) and (min-aspect-ratio:4/5){
+.hero-copy{left:6%;right:auto;top:25%;width:28%;max-width:540px}
+h1{font-size:clamp(36px,3.3vw,62px);line-height:1.09;letter-spacing:-.055em}
+h1>span{display:block;margin-top:.16em}
+.hero-lower{left:6%;right:5%;bottom:10.5%;gap:35px}
+.description{flex:0 0 30%;max-width:440px;line-height:1.75}
+.hero-shade{background:linear-gradient(180deg,#f2f5eb26 0%,transparent 38%,transparent 57%,#0a1b1466 79%,#0a1b14d9 100%)}
+}
+@media(min-width:701px) and (min-aspect-ratio:4/5) and (max-height:620px){
+.hero-copy{top:24%;width:28%}h1{font-size:clamp(29px,2.8vw,40px);line-height:1.05}.eyebrow{font-size:7px;margin-bottom:12px}
+.hero-lower{bottom:10%;gap:25px}.description{font-size:10px;line-height:1.6}.primary,.secondary{font-size:10px;padding:11px 15px;min-height:40px}
+}
