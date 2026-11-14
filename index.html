@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#d4cfc4">
+<title>Камень. Характер вашего дома</title><meta name="description" content="Демонстрационная фотореалистичная сцена облицовки дома натуральным камнем при прокрутке.">
+<link rel="preload" as="image" href="./assets/house-stone.webp"><link rel="preload" as="image" href="./assets/house-bare.webp"><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="story">
+<section class="scene" aria-label="Прокручивайте страницу: фасад дома постепенно покрывается природным камнем">
+<img id="poster" src="./assets/house-stone.webp" alt="Дом с фасадом из натурального песчаника, фотореалистичная визуализация">
+<canvas id="cladding" aria-hidden="true"></canvas><div class="shade"></div>
+<header><a href="#" id="brand" aria-label="Вернуться в начало">КАМЕНЬ<span>ЕСТЕСТВЕННЫЙ ХАРАКТЕР</span></a><span class="concept">ФАСАД / КОНЦЕПТ 01</span><button id="restart" type="button">Заново <span>↗</span></button></header>
+<div class="headline"><span class="eyebrow">ПРИРОДНЫЙ КАМЕНЬ</span><h1>Дом обретает<br><em>характер.</em></h1><p>Один дом. Два ощущения.<br>Прокрутите, чтобы увидеть разницу.</p></div>
+<footer><div class="prompt"><span class="arrow">↓</span><span>ЛИСТАЙТЕ<br>КАМЕНЬ ЗА КАМНЕМ</span></div><div class="progress"><div class="numbers"><span id="stage">ДО ОБЛИЦОВКИ</span><span id="percentage">0%</span></div><div class="track"><div id="fill"></div></div></div></footer>
+<div class="note">ДЕМОНСТРАЦИОННАЯ ВИЗУАЛИЗАЦИЯ</div><div id="load-message" role="status">Подготавливаем материал…</div>
+<noscript><p class="noscript">Для анимации включите JavaScript. Показан готовый каменный фасад.</p></noscript>
+</section>
+</main>
+<script src="./app.js"></script>
+</body></html>
