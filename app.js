@@ -17,7 +17,22 @@ const portrait=()=>innerWidth<=700||matchMedia('(max-aspect-ratio:4/5)').matches
 let mobile=portrait(),width=0,height=0,dpr=1,progress=0,target=0,frame=0,ready=false,visible=false,sceneVersion=0;
 let atlas,settledImage,tiles=[],oldWidth=0,staticFull=false,lastFrameTime=0;
 let geometry=null,quality=1,slowFrames=0,qualitySamples=0;
-let lastReveal="",lastCue="";
+let lastReveal="",lastCue="",lastFinish=-1;
+let heroFinish='sand',heroPreference='';
+const heroFinishes={sand:{label:'Песочный',name:'Тёплый песчаник'},light:{label:'Светлый',name:'Светлый известняк'},graphite:{label:'Графитовый',name:'Графитовый сланец'}};
+const finishPicker=document.getElementById('hero-finishes');
+function rememberHeroFinish(){
+ heroPreference=heroFinishes[heroFinish].name;
+ const note=document.getElementById('calc-finish-note');note.hidden=false;
+ document.getElementById('calc-finish-choice').textContent=heroPreference;
+ summarizeEstimate();
+}
+function prepareTrajectories(items){
+ const low=Math.max(...items.map(tile=>tile.cy)),high=Math.min(...items.map(tile=>tile.cy));
+ const starts=items.map((tile,i)=>{const row=(low-tile.cy)/(low-high);return Math.floor(row*5)/5*.66+row*.035+(i%9)*.002});
+ const first=Math.min(...starts);
+ return items.map((tile,i)=>({...tile,settled:false,start:Math.max(0,starts[i]-first-.012),originX:Math.sign(tile.originX)*((mobile?155:205)+(i%7)*13),originY:65+(i%5)*12,turn:tile.turn*.22,arc:tile.arc*.18}));
+}
 const cueElement=document.getElementById("cue");
 // Photographic faces, side faces and shadows are baked once at authoring time.
 // A shared atlas replaces hundreds of canvases and synchronous texture generation.
@@ -46,28 +61,34 @@ function setupCanvases(resizeWalls=true){
 function measure(force=false){const nextMobile=portrait();const widthChanged=Math.abs(innerWidth-oldWidth)>2;const heightChanged=!nextMobile&&Math.abs(innerHeight-height)>2;if(!force&&!widthChanged&&!heightChanged)return;oldWidth=innerWidth;width=innerWidth;
  height=Math.round(window.visualViewport?.height||innerHeight);
  root.style.setProperty('--scene-h',height+'px');root.style.setProperty('--vh',height/100+'px');
- introTravel=Math.round(height*(nextMobile?1.05:1.2));root.style.setProperty('--intro-travel',introTravel+'px');syncPagePosition();
+ introTravel=Math.round(height*(nextMobile?1.45:1.55));root.style.setProperty('--intro-travel',introTravel+'px');syncPagePosition();
  if(nextMobile!==mobile){mobile=nextMobile;loadScene()}else setupCanvases();schedule()}
 function loadImage(url){return new Promise((resolve,reject)=>{const image=new Image();image.onload=async()=>{try{await image.decode();resolve(image)}catch(error){reject(error)}};image.onerror=reject;image.src=url})}
-async function loadScene(){const version=++sceneVersion;ready=false;root.classList.remove('ready','load-error');const name=mobile?'mobile':'desktop';try{
- const [a,wall]=await Promise.all([loadImage(`./assets/hero-${name}-atlas.webp`),loadImage(`./assets/hero-${name}-settled.webp`)]);
- let prepared=a;if(window.createImageBitmap){try{prepared=await createImageBitmap(a)}catch{ /* Decoded HTMLImageElement remains a valid fallback. */ }}
- if(version!==sceneVersion){prepared.close?.();return}atlas?.close?.();atlas=prepared;settledImage=wall;
- tiles=heroManifest[name].items.map(tile=>({...tile,settled:false}));
- quality=1;slowFrames=0;qualitySamples=0;lastFrameTime=0;setupCanvases();
- // Decode and upload the atlas before accepting the first gesture.
- ctx.drawImage(atlas,0,0);
- // Force the first canvas materialization now, rather than on a touch frame.
- ctx.getImageData(0,0,1,1);ctx.clearRect(0,0,canvas.width,canvas.height);
+async function loadScene(finish=heroFinish,preserve=false){
+ const version=++sceneVersion;if(!preserve){ready=false;root.classList.remove('ready','load-error')}
+ finishPicker.setAttribute('aria-busy','true');const name=mobile?'mobile':'desktop',suffix=finish==='sand'?'':'-'+finish;
+ try{
+ const [image,wall]=await Promise.all([loadImage(`./assets/hero-${name}${suffix}-atlas.webp`),loadImage(`./assets/hero-${name}${suffix}-settled.webp`)]);
+ let prepared=image;if(window.createImageBitmap){try{prepared=await createImageBitmap(image)}catch{}}
+ // Warm a detached surface so a finish change never flashes the sprite sheet.
+ const warm=document.createElement('canvas');warm.width=64;warm.height=64;
+ const warmContext=warm.getContext('2d');warmContext.drawImage(prepared,0,0,64,64);warmContext.getImageData(0,0,1,1);
  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
- if(version!==sceneVersion)return;ready=true;root.classList.add('ready');schedule();
- }catch{if(version!==sceneVersion)return;root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
+ if(version!==sceneVersion){prepared.close?.();return}
+ atlas?.close?.();atlas=prepared;settledImage=wall;
+ tiles=prepareTrajectories(heroManifest[name].items);lastFinish=-1;
+ if(!preserve){quality=1;slowFrames=0;qualitySamples=0}lastFrameTime=0;setupCanvases();
+ heroFinish=finish;for(const button of finishPicker.querySelectorAll('[data-finish]'))button.setAttribute('aria-pressed',String(button.dataset.finish===finish));
+ document.getElementById('finish-name').textContent=heroFinishes[finish].name;document.getElementById('finish-status').textContent='';finishPicker.setAttribute('aria-busy','false');
+ ready=true;root.classList.add('ready');if(preserve)rememberHeroFinish();schedule();
+ }catch{if(version!==sceneVersion)return;finishPicker.setAttribute('aria-busy','false');if(preserve){document.getElementById('finish-status').textContent='Не удалось загрузить отделку. Попробуйте ещё раз.'}else{root.classList.add('load-error');document.getElementById('loader').textContent='Сцена не загрузилась. Обновите страницу.'}}
+}
 function updateUI(){
- const reveal=smooth((progress-.67)/.17).toFixed(3),cue=(1-smooth(progress/.12)).toFixed(3);
+ const reveal=smooth((progress-.74)/.13).toFixed(3),cue=(1-smooth(progress/.12)).toFixed(3);
  if(reveal!==lastReveal){scene.style.setProperty('--reveal',reveal);lastReveal=reveal}
  if(cue!==lastCue){scene.style.setProperty('--cue',cue);lastCue=cue}
  const next=Number(reveal)>.015;
- if(next!==visible){visible=next;root.classList.toggle('hero-visible',visible);header.hidden=!visible;copy.hidden=!visible;document.getElementById('bottom').hidden=!visible;document.getElementById('lower').hidden=!visible;document.getElementById('lower').inert=!visible;header.inert=!visible;copy.inert=!visible;header.setAttribute('aria-hidden',String(!visible));copy.setAttribute('aria-hidden',String(!visible))}
+ if(next!==visible){visible=next;root.classList.toggle('hero-visible',visible);header.hidden=!visible;copy.hidden=!visible;document.getElementById('bottom').hidden=!visible;finishPicker.hidden=!visible;finishPicker.inert=!visible;document.getElementById('lower').hidden=!visible;document.getElementById('lower').inert=!visible;header.inert=!visible;copy.inert=!visible;header.setAttribute('aria-hidden',String(!visible));copy.setAttribute('aria-hidden',String(!visible))}
  cueElement.style.visibility=progress>.15?'hidden':'visible';
 }
 function atlasDraw(context,rect,x,y){context.drawImage(atlas,rect[0],rect[1],rect[2],rect[3],x,y,rect[4],rect[5])}
@@ -75,9 +96,9 @@ function updateSettled(p){
  const {scale,ox,oy,left,top,wallWidth,wallHeight,wallDpr}=geometry;
  const layout=heroManifest[mobile?'mobile':'desktop'].layout;
  const reset=()=>{settledCtx.setTransform(wallDpr,0,0,wallDpr,0,0);settledCtx.clearRect(0,0,wallWidth,wallHeight);settledCtx.translate(ox-left,oy-top);settledCtx.scale(scale,scale)};
- if(p>=.999){if(!staticFull){reset();settledCtx.drawImage(settledImage,layout.bounds.x,layout.bounds.y);for(const tile of tiles)tile.settled=true;staticFull=true}return}
+ if(p>=.999){const finish=Math.round(smooth((progress-.64)/.075)*12);if(!staticFull||finish!==lastFinish){reset();settledCtx.drawImage(settledImage,layout.bounds.x,layout.bounds.y);if(finish){settledCtx.globalCompositeOperation='source-atop';settledCtx.fillStyle=`rgba(255,204,133,${finish/12*.055})`;settledCtx.fillRect(layout.bounds.x,layout.bounds.y,layout.bounds.w,layout.bounds.h);settledCtx.globalCompositeOperation='source-over'}for(const tile of tiles)tile.settled=true;staticFull=true;lastFinish=finish}return}
  let rebuild=staticFull;staticFull=false;const added=[];
- for(const tile of tiles){const t=clamp((p-tile.start)/.22);const placed=t>=1||(reduced&&t>0);if(tile.settled&&!placed)rebuild=true;if(placed&&!tile.settled)added.push(tile);tile.settled=placed}
+ for(const tile of tiles){const t=clamp((p-tile.start)/.16);const placed=t>=1||(reduced&&t>0);if(tile.settled&&!placed)rebuild=true;if(placed&&!tile.settled)added.push(tile);tile.settled=placed}
  if(rebuild){reset();for(const tile of tiles)if(tile.settled)atlasDraw(settledCtx,tile.face,tile.x,tile.y)}
  else if(added.length){settledCtx.setTransform(wallDpr*scale,0,0,wallDpr*scale,(ox-left)*wallDpr,(oy-top)*wallDpr);for(const tile of added)atlasDraw(settledCtx,tile.face,tile.x,tile.y)}
 }
@@ -86,21 +107,21 @@ function draw(now){
  const blend=1-Math.exp(-dt/55);progress=reduced?target:progress+(target-progress)*blend;
  if(Math.abs(target-progress)<.0001)progress=target;updateUI();
  if(ready){
- const p=clamp(progress/.62);
+ const p=clamp(progress/.64);
  // Adapt only moving fragments. The house and finished facade retain their resolution.
  if(mobile&&p>0&&p<.999&&elapsed>0){qualitySamples++;if(elapsed>25)slowFrames++;if(qualitySamples>=24){if(slowFrames>=8&&quality>.65){quality=quality===1?.8:.65;setupCanvases(false)}qualitySamples=0;slowFrames=0}}
  const {scale,ox,oy,flightTop,flightHeight}=geometry;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,flightHeight);ctx.translate(ox,oy-flightTop);ctx.scale(scale,scale);
  updateSettled(p);
  if(p>0&&p<.999&&!reduced)for(const tile of tiles){
- const t=clamp((p-tile.start)/.22);if(t<=0||t>=1)continue;
- const ease=1-Math.pow(1-t,2.4),remaining=1-ease,seating=1-smooth((t-.78)/.22);
+ const t=clamp((p-tile.start)/.16);if(t<=0||t>=1)continue;
+ const ease=1-Math.pow(1-t,3),remaining=1-ease,seating=1-smooth((t-.78)/.22);
  const x=tile.cx+tile.originX*remaining;
  const y=tile.cy+tile.originY*remaining+Math.sin(t*Math.PI)*tile.arc-3*seating;
- const size=1+remaining*.23;
+ const size=1+remaining*.08;
  const radius=(tile.body[4]+tile.body[5])*size*.55;
  if(x+radius < -ox/scale || x-radius > (width-ox)/scale || y+radius < (flightTop-oy)/scale || y-radius > (flightTop+flightHeight-oy)/scale)continue;
- ctx.save();ctx.translate(x,y);ctx.rotate(tile.turn*remaining);ctx.scale(size*(1-.08*seating),size*(1-.13*seating));
+ ctx.save();ctx.translate(x,y);ctx.rotate(tile.turn*remaining);ctx.scale(size*(1-.035*seating),size*(1-.065*seating));
  // One atlas draw while in flight; fade only the side faces during final seating.
  if(seating>.995)atlasDraw(ctx,tile.body,tile.x-tile.cx-tile.padding,tile.y-tile.cy-tile.padding);
  else{if(seating>.005){ctx.globalAlpha=seating;atlasDraw(ctx,tile.body,tile.x-tile.cx-tile.padding,tile.y-tile.cy-tile.padding);ctx.globalAlpha=1-seating}atlasDraw(ctx,tile.face,tile.x-tile.cx,tile.y-tile.cy);ctx.globalAlpha=1}
@@ -112,7 +133,8 @@ function draw(now){
 document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;lastFrameTime=0}else schedule()});
 function restart(){window.scrollTo({top:0,behavior:reduced?'instant':'smooth'});syncPagePosition()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
-const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>jumpTo('calculator'));
+const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>{rememberHeroFinish();chooseTask('facade');setCalculatorTask('facade');jumpTo('calculator')});
+for(const button of finishPicker.querySelectorAll('[data-finish]'))button.addEventListener('click',()=>{if(button.dataset.finish!==heroFinish||finishPicker.getAttribute('aria-busy')==='true')loadScene(button.dataset.finish,true)});
 for(const trigger of document.querySelectorAll('[data-open]'))trigger.addEventListener('click',()=>document.getElementById(trigger.dataset.open).showModal());
 for(const panel of document.querySelectorAll('dialog')){panel.querySelector('.close').addEventListener('click',()=>panel.close());panel.addEventListener('click',event=>{if(event.target!==panel)return;const b=panel.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)panel.close()})}
 document.getElementById('demo-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('demo-status').hidden=false});
@@ -128,12 +150,12 @@ const taskNames={facade:'Фасад',plinth:'Цоколь',paving:'Мощени�
 function unlockPage(){root.classList.add('page-scroll')}
 function syncPagePosition(){
  root.classList.toggle('past-hero',scrollY>introTravel+height*.55);
- // Finish slightly before the sticky range ends, leaving a short reading pause.
- const next=clamp(scrollY/Math.max(1,introTravel*.85));
+ // Finish slightly before the sticky range ends, leaving room to compare the finished facade.
+ const next=clamp(scrollY/Math.max(1,introTravel*.76));
  if(next!==target){target=next;schedule()}
 }
 function jumpTo(id){const section=document.getElementById(id==='estimate'&&mobile?'estimate-form':id);if(!section)return;unlockPage();requestAnimationFrame(()=>{const far=Math.abs(section.getBoundingClientRect().top)>height*1.5;section.scrollIntoView({behavior:reduced||far?'instant':'smooth',block:'start'})})}
-function summarizeEstimate(){const data=new FormData(estimateForm);const parts=[taskNames[data.get('task')]||'Подбор'];const material=data.get('material');parts.push(material==='Нужна помощь с выбором'?'помощь с выбором':material);if(data.get('area'))parts.push(data.get('area')+' м²');if(data.get('location'))parts.push(data.get('location'));if(data.has('delivery'))parts.push('доставка');if(data.has('installation'))parts.push('монтаж');document.getElementById('estimate-summary').textContent=parts.join(' · ');window.syncFakturaCalculator?.({task:data.get('task'),material:data.get('material'),area:data.get('area'),delivery:data.has('delivery'),installation:data.has('installation')});return parts.join(' · ')}
+function summarizeEstimate(){const data=new FormData(estimateForm);const parts=[taskNames[data.get('task')]||'Подбор'];if(heroPreference&&data.get('task')==='facade')parts.push('Отделка: '+heroPreference);const material=data.get('material');parts.push(material==='Нужна помощь с выбором'?'помощь с выбором':material);if(data.get('area'))parts.push(data.get('area')+' м²');if(data.get('location'))parts.push(data.get('location'));if(data.has('delivery'))parts.push('доставка');if(data.has('installation'))parts.push('монтаж');document.getElementById('estimate-summary').textContent=parts.join(' · ');window.syncFakturaCalculator?.({task:data.get('task'),material:data.get('material'),area:data.get('area'),delivery:data.has('delivery'),installation:data.has('installation')});return parts.join(' · ')}
 function chooseTask(task){const radio=estimateForm.querySelector(`input[name="task"][value="${task}"]`);if(radio)radio.checked=true;summarizeEstimate()}
 function filterMaterials(task){for(const button of document.querySelectorAll('[data-filter]')){const selected=button.dataset.filter===task;button.classList.toggle('active',selected);button.setAttribute('aria-pressed',String(selected))}let count=0;for(const card of document.querySelectorAll('.product-card')){const match=task==='all'||card.dataset.uses.split(' ').includes(task);card.hidden=!match;if(match)count++}document.getElementById('filter-context').textContent=task==='all'?'Найдите подходящую фактуру или оставьте подбор специалисту.':`${taskNames[task]}: ${count} ${count===1?'вариант':'варианта'} для начала подбора. Применение уточним по вашему объекту.`}
 for(const button of document.querySelectorAll('[data-jump]'))button.addEventListener('click',()=>jumpTo(button.dataset.jump));
@@ -161,7 +183,7 @@ function calculatorMaterials(preferred){const options=calculatorPricing.material
 function setCalculatorTask(task,preferred){calculatorTask=task;for(const button of document.querySelectorAll('[data-calc-task]')){const active=button.dataset.calcTask===task;button.classList.toggle('selected',active);button.setAttribute('aria-pressed',String(active))}const selected=preferred||calcElements.material.value;calculatorMaterials(selected);calcElements.thickness.value=task==='paving'?'40':'20';calcElements.customPrice.value='';renderCalculator()}
 function readCalculator(){return{task:calculatorTask,materialId:calcElements.material.value,area:calcElements.area.value,reserve:calcElements.reserve.value,thickness:calcElements.thickness.value,depth:calcElements.depth.value,installation:calcElements.installation.checked,delivery:calcElements.delivery.checked,distance:calcElements.distance.value,customPrice:calcElements.customPrice.value}}
 function calcText(id,text){document.getElementById(id).textContent=text}
-function calculatorShareText(budget){if(!budget?.valid)return'';return['КАМЕНЬ К ЛИЦУ — предварительный расчет',`${taskNames[budget.task]} · ${budget.material.name}`,`Чистая площадь: ${calcDecimal.format(budget.area)} м²; запас ${budget.reserve}%.`,budget.material.unit==='kg'?`К заказу: ${calcDecimal.format(budget.quantity)} кг (${budget.bags} меш. × 25 кг), слой ${budget.depth} см.`:`К заказу: ${calcDecimal.format(budget.quantity)} м², толщина ${budget.thickness} мм.`,`Материал: ${calcMoney.format(budget.materialCost)} ₽.`,`Работы: ${budget.installation?calcMoney.format(budget.installationCost)+' ₽':'не выбраны'}.`,`Доставка: ${budget.delivery?calcMoney.format(budget.deliveryCost)+' ₽':'самовывоз'}.`,`Итого ориентировочно: ${calcMoney.format(budget.total)} ₽.`,`Цены и допущения сверены ${calculatorPricing.checkedAt}. Не оферта; подготовка основания, расходники и леса не включены.`].join('\n')}
+function calculatorShareText(budget){if(!budget?.valid)return'';return['КАМЕНЬ К ЛИЦУ — предварительный расчет',...(heroPreference&&budget.task==='facade'?['Пожелание к отделке: '+heroPreference+'. Материал рассчитывается отдельно по выбранной позиции.']:[]),`${taskNames[budget.task]} · ${budget.material.name}`,`Чистая площадь: ${calcDecimal.format(budget.area)} м²; запас ${budget.reserve}%.`,budget.material.unit==='kg'?`К заказу: ${calcDecimal.format(budget.quantity)} кг (${budget.bags} меш. × 25 кг), слой ${budget.depth} см.`:`К заказу: ${calcDecimal.format(budget.quantity)} м², толщина ${budget.thickness} мм.`,`Материал: ${calcMoney.format(budget.materialCost)} ₽.`,`Работы: ${budget.installation?calcMoney.format(budget.installationCost)+' ₽':'не выбраны'}.`,`Доставка: ${budget.delivery?calcMoney.format(budget.deliveryCost)+' ₽':'самовывоз'}.`,`Итого ориентировочно: ${calcMoney.format(budget.total)} ₽.`,`Цены и допущения сверены ${calculatorPricing.checkedAt}. Не оферта; подготовка основания, расходники и леса не включены.`].join('\n')}
 function renderCalculator(){
  const input=readCalculator(),material=calculatorPricing.materials.find(item=>item.id===input.materialId),bulk=material.unit==='kg';
  document.getElementById('calc-thickness-field').hidden=bulk;document.getElementById('calc-depth-field').hidden=!bulk;document.getElementById('calc-distance-field').hidden=!input.delivery;
