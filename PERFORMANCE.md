@@ -30,3 +30,9 @@ The after sample used the compact atlas. The adaptive path was separately forced
 Validation: four desktop/mobile aspect ratios, touch keeps the intro fixed then releases the page, reverse clears placed stones, orientation switches textures, reduced motion reaches the finished facade. Calculator totals, custom rates, clipboard and form handoff also passed in both viewport sizes.
 
 Physical-device follow-up: cold load, several slow and fast swipes, reverse/replay, then normal page scrolling on the user's Pixel. Browser emulation cannot guarantee a constant 60 fps on a particular device.
+
+## Reversible native scrolling
+
+The intro now uses an ordinary document scroll range with a sticky scene instead of capturing wheel/touch events and switching the body between fixed and scrollable modes. Progress derives from scroll position in both directions. The last 15% of the sticky range holds the completed hero before it scrolls out; returning to the top restores the bare concrete house. Browser touch inertia, wheel, keyboard and pinch zoom remain native. The optimized atlas renderer and adaptive moving-layer resolution are unchanged.
+
+Validated at 412 × 892 and 1440 × 900: partial assembly keeps hero top at zero, full assembly displays copy, scrolling beyond the range moves the hero out, reverse scroll removes placed stones, and scroll zero clears every stone. Mobile touch continues scrolling after release, and the hero calculator link reaches its target.
