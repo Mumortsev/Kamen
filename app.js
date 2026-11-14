@@ -61,7 +61,7 @@ function makeTiles(layout){let seed=123;const random=()=>{seed=seed*16807%214748
  }return visibleTiles}
 function schedule(){if(!frame)frame=requestAnimationFrame(draw)}
 function updateProgress(){schedule()}
-function measure(force=false){const nextMobile=portrait();const widthChanged=Math.abs(innerWidth-oldWidth)>2;if(!force&&!widthChanged)return;oldWidth=innerWidth;width=innerWidth;
+function measure(force=false){const nextMobile=portrait();const widthChanged=Math.abs(innerWidth-oldWidth)>2;const heightChanged=!nextMobile&&Math.abs(innerHeight-height)>2;if(!force&&!widthChanged&&!heightChanged)return;oldWidth=innerWidth;width=innerWidth;
  // Capture the visible viewport only on real width/orientation changes.
  // Swipe and mobile browser chrome changes do not alter image geometry.
  height=Math.round(window.visualViewport?.height||innerHeight);
@@ -90,7 +90,7 @@ function draw(now){
  const blend=1-Math.exp(-dt/55);progress=reduced?target:progress+(target-progress)*blend;
  if(Math.abs(target-progress)<.0001)progress=target;updateUI();
  if(ready){
- const layout=layouts[mobile?'mobile':'desktop'];const scale=Math.min(width/layout.w,height/layout.h),ox=(width-layout.w*scale)/2,oy=(height-layout.h*scale)/2;
+ const layout=layouts[mobile?'mobile':'desktop'];const scale=Math.max(width/layout.w,height/layout.h),ox=(width-layout.w*scale)/2,oy=(height-layout.h*scale)/2;
  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);ctx.translate(ox,oy);ctx.scale(scale,scale);
  // The fixed photo remains in its GPU-composited DOM layer; only stones are redrawn.
  const p=clamp(progress/.62);updateSettled(p,layout);ctx.drawImage(stoneLayer,0,0);
@@ -112,7 +112,10 @@ function draw(now){
 }
 function restart(){target=0;schedule()}
 document.getElementById('restart').addEventListener('click',restart);document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();restart()});
-const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>dialog.showModal());dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close()}});
+const dialog=document.getElementById('contact');document.getElementById('request').addEventListener('click',()=>dialog.showModal());
+for(const trigger of document.querySelectorAll('[data-open]'))trigger.addEventListener('click',()=>document.getElementById(trigger.dataset.open).showModal());
+for(const panel of document.querySelectorAll('dialog')){panel.querySelector('.close').addEventListener('click',()=>panel.close());panel.addEventListener('click',event=>{if(event.target!==panel)return;const b=panel.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)panel.close()})}
+document.getElementById('demo-form').addEventListener('submit',event=>{event.preventDefault();document.getElementById('demo-status').hidden=false});
 // Capture input while the page itself stays fixed. Dialog gestures remain native.
 let touchX=0,touchY=0,touchActive=false;
 function advance(delta){if(!ready||dialog.open)return;target=clamp(target+delta);schedule()}
