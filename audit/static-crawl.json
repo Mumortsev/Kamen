@@ -1,0 +1,1241 @@
+{
+  "counts": {
+    "pages": 176,
+    "internalReferences": 7808
+  },
+  "problems": [],
+  "pages": [
+    {
+      "path": "/Kamen/404.html",
+      "title": "КаменьТорг23 — природный камень в Краснодаре",
+      "h1": 1,
+      "canonical": null,
+      "robots": "noindex"
+    },
+    {
+      "path": "/Kamen/",
+      "title": "КаменьТорг23 — природный камень в Краснодаре",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcitopeschanik/",
+      "title": "Кварцито-песчаник. Особенности, применение материалов | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcitopeschanik/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/",
+      "title": "Камень для облицовки | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/",
+      "title": "Декоративный щебень, галька, бут | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-plitnyak/",
+      "title": "Уральский плитняк | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-sero-zelenyj/",
+      "title": "Песчаник серо-зеленый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-sero-zelenyj/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/",
+      "title": "Камень Лапша | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-fontanka/",
+      "title": "Фонтанка | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-fontanka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/",
+      "title": "Песчаник галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/portfolio/",
+      "title": "Работы компании | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/portfolio/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/",
+      "title": "Уральский плитняк | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamni-dlya-viski/",
+      "title": "Камни для виски | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamni-dlya-viski/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/",
+      "title": "Камень Луганск | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik/",
+      "title": "Песчаник. Особенности, применение материалов | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/",
+      "title": "Камень Дракон | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/information/",
+      "title": "О природном камне | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/information/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/",
+      "title": "Кварцито-песчаник | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/granit/",
+      "title": "Гранит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/granit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/",
+      "title": "Брусчатка | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-peschanik-s-razvodami/",
+      "title": "Песчаник с разводами | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-peschanik-s-razvodami/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-krasnyj-obozhzhenyj/",
+      "title": "Песчаник красный обожженый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-krasnyj-obozhzhenyj/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/contact/",
+      "title": "Контакты | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/contact/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/montag/",
+      "title": "Монтаж природного камня | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/montag/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnye-izdeliya-iz-kamnya/",
+      "title": "Декоративные изделия из камня | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnye-izdeliya-iz-kamnya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/plitnyak-zlatolit/",
+      "title": "Плитняк златолит. Особенности, применение материалов | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/plitnyak-zlatolit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/404/",
+      "title": "КаменьТорг23 — природный камень в Краснодаре",
+      "h1": 1,
+      "canonical": null,
+      "robots": "noindex"
+    },
+    {
+      "path": "/Kamen/dostavka/",
+      "title": "Доставка и оплата | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dostavka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/plitka-chernyj-slanec/",
+      "title": "Плитка из натурального камня «Черный сланец»: особенности, преимущества и область использования | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/plitka-chernyj-slanec/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-lazurit/",
+      "title": "Песчаник Лазурит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-lazurit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/catalog/",
+      "title": "Каталог природного камня | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/catalog/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-940566750881-vhodnie-gruppi-iz-naturalnogo-kamnya/",
+      "title": "Входные группы из натурального камня | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-940566750881-vhodnie-gruppi-iz-naturalnogo-kamnya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-313903534070-kvartsito-peschanik-klinker-shlifovannii/",
+      "title": "Кварцито-песчаник \"Клинкер\" шлифованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-313903534070-kvartsito-peschanik-klinker-shlifovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-438275717304-plitka-oblitsovochnaya-iz-naturalnogo-ka/",
+      "title": "Плитка облицовочная из натурального камня Бастион(UA) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-438275717304-plitka-oblitsovochnaya-iz-naturalnogo-ka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-172058248782-plitka-iz-naturalnogo-kamnya-kastluk/",
+      "title": "Плитка из натурального камня Кастл(UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-172058248782-plitka-iz-naturalnogo-kamnya-kastluk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-155065579431-pilennii-kamenkora-dereva/",
+      "title": "Пиленный камень\"Кора дерева\" | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-155065579431-pilennii-kamenkora-dereva/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-101021564941-plitka-dlya-oblitsovki-iz-zlatolita-mult/",
+      "title": "Плитка для облицовки из Златолита мультикалор | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-101021564941-plitka-dlya-oblitsovki-iz-zlatolita-mult/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-446039616770-pilennii-kamen-kora-dereva-zheltaya/",
+      "title": "Пиленный камень \"Кора дерева желтая\" | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-446039616770-pilennii-kamen-kora-dereva-zheltaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-391476329799-plitka-oblitsovochnaya-zheltaya-so-skolo/",
+      "title": "Плитка облицовочная Желтая со сколом из натурального камня(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-391476329799-plitka-oblitsovochnaya-zheltaya-so-skolo/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-271948538837-monolit-uk/",
+      "title": "Монолит (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-271948538837-monolit-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-168683521566-stupeni-iz-naturalnogo-kamnya-sero-zelen/",
+      "title": "Ступени из натурального камня серо-зеленые | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-168683521566-stupeni-iz-naturalnogo-kamnya-sero-zelen/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-835756176535-plitka-iz-kvartsito-peschannika-bastion/",
+      "title": "Плитка из кварцито-песчанника Бастион шлифованный(UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-835756176535-plitka-iz-kvartsito-peschannika-bastion/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-481159895294-plitka-oblitsovochnaya-koloritshlifovann/",
+      "title": "Плитка облицовочная \"Колорит\"шлифованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-481159895294-plitka-oblitsovochnaya-koloritshlifovann/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-147514934473-fasadnaya-plitka-merkat/",
+      "title": "Фасадная плитка Меркат | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-147514934473-fasadnaya-plitka-merkat/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-888779240824-nakrivka-parapetnayarf/",
+      "title": "Накрывка парапетная(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-888779240824-nakrivka-parapetnayarf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/oblicovochniykamen/tproduct/140981763-215620945789-oblitsovochnaya-plitka-klinker/",
+      "title": "Облицовочная плитка \"Клинкер\" | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/oblicovochniykamen/tproduct/140981763-215620945789-oblitsovochnaya-plitka-klinker/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-343258414511-galka-morskaya-chernomorskaya/",
+      "title": "Галька морская Черноморская | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-343258414511-galka-morskaya-chernomorskaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-979585542285-dekorativnii-scheben-kroshka-zmeevik/",
+      "title": "Декоративный щебень, крошка Змеевик | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-979585542285-dekorativnii-scheben-kroshka-zmeevik/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-763541332541-galka-rechnaya-zheltaya/",
+      "title": "Галька речная желтая | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-763541332541-galka-rechnaya-zheltaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-639799083221-butovii-kamen-krasnii-galtovka/",
+      "title": "Бутовый камень красный галтовка | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-639799083221-butovii-kamen-krasnii-galtovka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-649790263258-butovii-kamen-sero-zelenii/",
+      "title": "Бутовый камень серо-зеленый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-649790263258-butovii-kamen-sero-zelenii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-943591909541-galka-morskaya-kaspiiskaya/",
+      "title": "Галька Морская Каспийская | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-943591909541-galka-morskaya-kaspiiskaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-616445250687-butovii-kamen-zheltii-galtovka/",
+      "title": "Бутовый камень желтый галтовка | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-616445250687-butovii-kamen-zheltii-galtovka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-485311869301-miks-uralskii-3-tsveta-galtovannii/",
+      "title": "Микс уральский 3 цвета галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-485311869301-miks-uralskii-3-tsveta-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-955185790201-dekorativnii-scheben-kroshka-felzit/",
+      "title": "Декоративный щебень, крошка Фельзит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-955185790201-dekorativnii-scheben-kroshka-felzit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-604586605041-izvestnyak-landshaftnii/",
+      "title": "Известняк ландшафтный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-604586605041-izvestnyak-landshaftnii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-223015691641-zheltii-kvarts-dekorativnii/",
+      "title": "Желтый кварц декоративный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-223015691641-zheltii-kvarts-dekorativnii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-272813347684-dekorativnii-scheben-kroshka-yashma-surg/",
+      "title": "Декоративный щебень, крошка Яшма сургучная. | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-272813347684-dekorativnii-scheben-kroshka-yashma-surg/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-643916638413-kroshka-staraya-angliya/",
+      "title": "Крошка Старая Англия | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-643916638413-kroshka-staraya-angliya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-245842836541-rakushechnik-krimskii/",
+      "title": "Ракушечник Крымский | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-245842836541-rakushechnik-krimskii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-121321564012-mramornaya-kroshka-medovaya-galtovannaya/",
+      "title": "Мраморная крошка медовая галтованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-121321564012-mramornaya-kroshka-medovaya-galtovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-915411557071-dekorativnii-scheben-kroshka-yashma-surg/",
+      "title": "Декоративный щебень, крошка Яшма Сургучная галтованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-915411557071-dekorativnii-scheben-kroshka-yashma-surg/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-752949128790-mramornaya-kroshka-belaya-kolotaya/",
+      "title": "Мраморная крошка белая колотая | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-752949128790-mramornaya-kroshka-belaya-kolotaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-906433880759-dekorativnii-scheben-kroshka-zlatolit-zh/",
+      "title": "Декоративный щебень, крошка Златолит желтый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-906433880759-dekorativnii-scheben-kroshka-zlatolit-zh/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-471975749671-zmeevik-galtovannii/",
+      "title": "Змеевик Галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-471975749671-zmeevik-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-856214035731-galka-morskaya-krimskaya/",
+      "title": "Галька морская Крымская | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-856214035731-galka-morskaya-krimskaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-568426694108-butovii-kamen-krasnii/",
+      "title": "Бутовый камень красный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-568426694108-butovii-kamen-krasnii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-778479358471-mramornaya-kroshka-rozovaya/",
+      "title": "Мраморная крошка розовая | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-778479358471-mramornaya-kroshka-rozovaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-123075555901-galka-tsvetnaya/",
+      "title": "Галька Цветная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-123075555901-galka-tsvetnaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-883375141521-morskaya-galka-zhemchuzhnaya/",
+      "title": "Морская галька Жемчужная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-883375141521-morskaya-galka-zhemchuzhnaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-835067677571-valun-bonusmegmatit/",
+      "title": "Валун Бонус(Мегматит) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-835067677571-valun-bonusmegmatit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-860641621312-mramornaya-kroshka-chernaya/",
+      "title": "Мраморная крошка черная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-860641621312-mramornaya-kroshka-chernaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-384990597851-miks-tri-tsveta-zlatolit-yashma-zmeevik/",
+      "title": "Микс три цвета Златолит Яшма Змеевик | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-384990597851-miks-tri-tsveta-zlatolit-yashma-zmeevik/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-308926602732-malinovii-kvartsit/",
+      "title": "Малиновый кварцит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-308926602732-malinovii-kvartsit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-669249723482-dekorativnaya-kroshka-kora-dereva/",
+      "title": "Декоративная крошка Кора дерева | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-669249723482-dekorativnaya-kroshka-kora-dereva/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-295597701471-mramornaya-kroshka-chernaya-galtovannaya/",
+      "title": "Мраморная крошка черная галтованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-295597701471-mramornaya-kroshka-chernaya-galtovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-301192799031-valun-serebro/",
+      "title": "Валун Серебро | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-301192799031-valun-serebro/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-925566257418-mramornaya-kroshka-medovaya/",
+      "title": "Мраморная крошка медовая | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-925566257418-mramornaya-kroshka-medovaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-972448988701-plesik-sinii-100-300mm/",
+      "title": "Плесик синий 100-300мм | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-972448988701-plesik-sinii-100-300mm/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-955637631572-malinovii-kvartsit-galtovannii/",
+      "title": "Малиновый кварцит галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-955637631572-malinovii-kvartsit-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-604162685020-butovii-kamen-zheltii/",
+      "title": "Бутовый камень желтый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-604162685020-butovii-kamen-zheltii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-863453388084-kroshka-peschanik-rizhii/",
+      "title": "Крошка песчаник рыжий | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-863453388084-kroshka-peschanik-rizhii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-959514212653-mramornaya-kroshka-belaya-galtovannaya/",
+      "title": "Мраморная крошка белая галтованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-959514212653-mramornaya-kroshka-belaya-galtovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-999641289791-plyosik-belii/",
+      "title": "Плёсик белый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-999641289791-plyosik-belii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-838264819914-butovii-kamen-serii-galtovka/",
+      "title": "Бутовый камень серый галтовка | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-838264819914-butovii-kamen-serii-galtovka/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-124680106651-mramornaya-kroshka-rozovaya-galtovannaya/",
+      "title": "Мраморная крошка розовая галтованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-124680106651-mramornaya-kroshka-rozovaya-galtovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-571627550973-mramornaya-kroshka-muhomor-galtovannii/",
+      "title": "Мраморная крошка Мухомор галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-571627550973-mramornaya-kroshka-muhomor-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnyj-shcheben-galka/tproduct/177851374-344492525291-rvannii-valun-zelenii-granit/",
+      "title": "Рванный валун зеленый гранит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnyj-shcheben-galka/tproduct/177851374-344492525291-rvannii-valun-zelenii-granit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-sero-zelenyj/tproduct/127239493-343644535260-peschanik-sero-zelenii-rf/",
+      "title": "Песчаник Серо-зеленый (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-sero-zelenyj/tproduct/127239493-343644535260-peschanik-sero-zelenii-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-sero-zelenyj/tproduct/127239493-827559996244-krupno-formatnie-plahi/",
+      "title": "Крупно-форматные плахи | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-sero-zelenyj/tproduct/127239493-827559996244-krupno-formatnie-plahi/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-sero-zelenyj/tproduct/127239493-744598225542-naturalnii-kamen-opavshaya-listva/",
+      "title": "Натуральный камень \"Опавшая Листва\" | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-sero-zelenyj/tproduct/127239493-744598225542-naturalnii-kamen-opavshaya-listva/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-sero-zelenyj/tproduct/127239493-966910088024-plitka-iz-kamnya-peschanika-sero-zelenay/",
+      "title": "Плитка из камня песчаника серо-зеленая(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-sero-zelenyj/tproduct/127239493-966910088024-plitka-iz-kamnya-peschanika-sero-zelenay/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-696766133421-assol-xl-uk/",
+      "title": "Ассоль XL (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-696766133421-assol-xl-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-283161899998-kamen-lapsha-zhelto-belaya-rf/",
+      "title": "Камень «Лапша» Желто-белая (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-283161899998-kamen-lapsha-zhelto-belaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-532676206870-kamen-lapsha-krasnaya-rf/",
+      "title": "Камень «Лапша» красная (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-532676206870-kamen-lapsha-krasnaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-958162739640-assol-galtovannaya-uk/",
+      "title": "Ассоль галтованная (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-958162739640-assol-galtovannaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-993248292228-oblitsovochnaya-plitka-simile-uk/",
+      "title": "Облицовочная плитка Симиле (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-993248292228-oblitsovochnaya-plitka-simile-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-721168445363-assol-uk/",
+      "title": "Ассоль (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-721168445363-assol-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-594026681788-kamen-lapsha-sero-zelenaya-rf/",
+      "title": "Камень «Лапша» серо-зеленая (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-594026681788-kamen-lapsha-sero-zelenaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-lapsha/tproduct/127242149-414911538081-kvartsito-peschanik-simile-shlifovannii/",
+      "title": "Кварцито-песчаник \"Симиле\" шлифованный (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-lapsha/tproduct/127242149-414911538081-kvartsito-peschanik-simile-shlifovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-fontanka/tproduct/127242023-736844254455-fontanka-mars-rf/",
+      "title": "Фонтанка «Марс» (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-fontanka/tproduct/127242023-736844254455-fontanka-mars-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-fontanka/tproduct/127242023-120425537909-fontanka-sero-zelenaya-rf/",
+      "title": "Фонтанка Серо-зеленая (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-fontanka/tproduct/127242023-120425537909-fontanka-sero-zelenaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-143771391961-kamen-malinovii-galtovannii/",
+      "title": "Камень малиновый галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-143771391961-kamen-malinovii-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-433769629528-prirodnii-kamen-drakon-krasnii-galtovann/",
+      "title": "Природный камень \"Дракон\" красный галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-433769629528-prirodnii-kamen-drakon-krasnii-galtovann/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-263417154801-peschanik-zheltii-galt-s-razvodami/",
+      "title": "Песчаник Желтый галт. с разводами | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-263417154801-peschanik-zheltii-galt-s-razvodami/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-835015232966-peschanik-sero-zelenii-galtovannii-rf/",
+      "title": "Песчаник Серо-зеленый галтованный (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-835015232966-peschanik-sero-zelenii-galtovannii-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-353458896291-prirodnii-kamen-drakon-cherno-sinii-galt/",
+      "title": "Природный камень \"Дракон\" черно-синий галтованный (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-353458896291-prirodnii-kamen-drakon-cherno-sinii-galt/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-galtovannyj/tproduct/127241727-179860581854-peschanik-krasnii-mars-galtovannii-rf/",
+      "title": "Песчаник красный «Марс» галтованный (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-galtovannyj/tproduct/127241727-179860581854-peschanik-krasnii-mars-galtovannii-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-367994643753-dikii-kamen-kora-dereva-zheltayaural/",
+      "title": "Дикий камень Кора Дерева желтая(Урал) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-367994643753-dikii-kamen-kora-dereva-zheltayaural/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-558739346461-kamen-lapsha-iz-chernogo-slantsa/",
+      "title": "Камень Лапша из черного сланца | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-558739346461-kamen-lapsha-iz-chernogo-slantsa/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-500219272391-chernii-slanets/",
+      "title": "Черный Сланец | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-500219272391-chernii-slanets/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-595896783698-dikii-kamen-zlatolit-serebryanii-dozhd/",
+      "title": "Дикий камень Златолит Серебряный дождь | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-595896783698-dikii-kamen-zlatolit-serebryanii-dozhd/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-725820997771-zlatolit-zheltii/",
+      "title": "Златолит желтый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-725820997771-zlatolit-zheltii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-454734660491-plitka-iz-naturalnogo-kamnya-chernii-sla/",
+      "title": "Плитка из натурального камня черный Сланец | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-454734660491-plitka-iz-naturalnogo-kamnya-chernii-sla/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-166887523161-plitka-slanets-cherno-zelenii/",
+      "title": "Плитка Сланец черно-зеленый | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-166887523161-plitka-slanets-cherno-zelenii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-799755794394-dikii-kamen-sedoi-ural/",
+      "title": "Дикий камень Седой Урал | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-799755794394-dikii-kamen-sedoi-ural/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-259705328658-kora-dereva/",
+      "title": "Кора дерева | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-259705328658-kora-dereva/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-800631091911-sero-goluboi-zlatolit/",
+      "title": "Серо-голубой златолит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-800631091911-sero-goluboi-zlatolit/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/ural-zlatolit/tproduct/128841629-189157456981-plitka-pilennaya-serebo/",
+      "title": "Плитка пиленная Серебо | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/ural-zlatolit/tproduct/128841629-189157456981-plitka-pilennaya-serebo/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-362120161535-fasadnaya-plitka-iz-kamnya-merkat-shlifo/",
+      "title": "Фасадная плитка из камня Меркат шлифованный (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-362120161535-fasadnaya-plitka-iz-kamnya-merkat-shlifo/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-499753974098-kvartsito-peschanik-shahriar-shlifovanni/",
+      "title": "Кварцито-песчаник Шахриар шлифованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-499753974098-kvartsito-peschanik-shahriar-shlifovanni/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-180226155691-tsokolnaya-plitka-iz-kamnya-plato-pogona/",
+      "title": "Цокольная плитка из камня Плато погонаж 100(UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-180226155691-tsokolnaya-plitka-iz-kamnya-plato-pogona/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-700825047751-plitka-shlifovannaya-fasadnaya-so-skolom/",
+      "title": "Плитка шлифованная фасадная со сколом (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-700825047751-plitka-shlifovannaya-fasadnaya-so-skolom/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-218400872390-tsokolnaya-plitka-iz-kamnya-plato-pogona/",
+      "title": "Цокольная плитка из камня Плато погонаж 200 (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-218400872390-tsokolnaya-plitka-iz-kamnya-plato-pogona/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-243253061677-klinkernii-kirpich-uk/",
+      "title": "Клинкерный кирпич (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-243253061677-klinkernii-kirpich-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-408043329358-tsokolnaya-plitka-iz-kamnya-plato-uk/",
+      "title": "Цокольная плитка из камня Плато (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-408043329358-tsokolnaya-plitka-iz-kamnya-plato-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-969304243214-plitka-iz-kamnya-plato-so-skolom/",
+      "title": "Плитка из камня Плато со сколом | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-969304243214-plitka-iz-kamnya-plato-so-skolom/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-844324350920-kvartsito-peschanik-plato-shlifovannii-u/",
+      "title": "Кварцито-песчаник Плато шлифованный (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-844324350920-kvartsito-peschanik-plato-shlifovannii-u/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/lugansk/tproduct/127242732-292813006128-plitka-fasadnaya-shahriar-pogonazh/",
+      "title": "Плитка фасадная Шахриар погонаж | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/lugansk/tproduct/127242732-292813006128-plitka-fasadnaya-shahriar-pogonazh/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/tproduct/127242431-132994035733-kamen-drakon-sero-zelenii-galtovannii/",
+      "title": "Камень Дракон серо-зеленый галтованный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/tproduct/127242431-132994035733-kamen-drakon-sero-zelenii-galtovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/tproduct/127242431-957368889862-prirodnii-kamen-drakon-sero-zelenii-rf/",
+      "title": "Природный камень «Дракон» серо-зеленый (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/tproduct/127242431-957368889862-prirodnii-kamen-drakon-sero-zelenii-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/tproduct/127242431-594289131823-prirodnii-kamen-zolotoi-drakon/",
+      "title": "Природный камень Золотой Дракон | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/tproduct/127242431-594289131823-prirodnii-kamen-zolotoi-drakon/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/tproduct/127242431-227574462875-prirodnii-kamen-drakon-krasnii-terrakoto/",
+      "title": "Природный камень \"Дракон\" красный терракотовый (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/tproduct/127242431-227574462875-prirodnii-kamen-drakon-krasnii-terrakoto/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-drakon/tproduct/127242431-756960071876-prirodnii-kamen-drakon-cherno-sinii-rf/",
+      "title": "Природный камень Дракон черно-синий (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-drakon/tproduct/127242431-756960071876-prirodnii-kamen-drakon-cherno-sinii-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-808742506901-kvartsito-peschanik-simile-polirovannii/",
+      "title": "Кварцито-песчаник \"Симиле\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-808742506901-kvartsito-peschanik-simile-polirovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-418876052047-kvartsito-peschanik-plato-polirovannii/",
+      "title": "Кварцито-песчаник \"Плато\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-418876052047-kvartsito-peschanik-plato-polirovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-302326136651-nakrivka-radiusnaya-polirovannaya/",
+      "title": "Накрывка радиусная полированная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-302326136651-nakrivka-radiusnaya-polirovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-106727108912-stupen-s-podstupenkom-radiusnaya-polirov/",
+      "title": "Ступень с подступенком радиусная полированная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-106727108912-stupen-s-podstupenkom-radiusnaya-polirov/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-698126854896-kvartsito-peschanik-bastion-polirovannii/",
+      "title": "Кварцито-песчаник \"Бастион\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-698126854896-kvartsito-peschanik-bastion-polirovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-249598900056-plitka-300300-polirovannaya/",
+      "title": "Плитка 300*300 полированная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-249598900056-plitka-300300-polirovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-507344184475-kvartsito-peschanik-merkat-polirovannii/",
+      "title": "Кварцито-песчаник \"Меркат\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-507344184475-kvartsito-peschanik-merkat-polirovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-832704169029-nakrivka-radiusnaya-shlifovannaya/",
+      "title": "Накрывка радиусная шлифованная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-832704169029-nakrivka-radiusnaya-shlifovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-737144683825-plitka-shlifovannaya-fasadnaya/",
+      "title": "Плитка шлифованная фасадная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-737144683825-plitka-shlifovannaya-fasadnaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-385971724510-plitka-shlifovannaya-tsokolnaya-300/",
+      "title": "Плитка шлифованная цокольная 300 | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-385971724510-plitka-shlifovannaya-tsokolnaya-300/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-347694665060-stupen-s-podstupenkom-polirovannaya/",
+      "title": "Ступень с подступенком полированная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-347694665060-stupen-s-podstupenkom-polirovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-503961271176-kvartsito-peschanik-klinker-polirovannii/",
+      "title": "Кварцито-песчаник \"Клинкер\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-503961271176-kvartsito-peschanik-klinker-polirovannii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-390064950420-kvartsito-peschannik-plitka-serayashlifo/",
+      "title": "Кварцито-песчанник \"Плитка серая\"шлифованная 300 | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-390064950420-kvartsito-peschannik-plitka-serayashlifo/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-482026206919-stupen-s-podstupenkom-radiusnaya/",
+      "title": "Ступень с подступенком радиусная | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-482026206919-stupen-s-podstupenkom-radiusnaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-228843134384-kvartsito-peschanik-shahriar-polirovanni/",
+      "title": "Кварцито-песчаник \"Шахриар\" полированный | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-228843134384-kvartsito-peschanik-shahriar-polirovanni/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-405208051858-ctupen-c-podstupenkom-uk/",
+      "title": "Cтупень c подступенком (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-405208051858-ctupen-c-podstupenkom-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kvarcito-peschanik/tproduct/154905680-474656087801-plitka-fasadnaya-s-faskoi-90gr/",
+      "title": "Плитка фасадная с фаской 90гр. | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kvarcito-peschanik/tproduct/154905680-474656087801-plitka-fasadnaya-s-faskoi-90gr/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/granit/tproduct/471772126-932682468731-granitnaya-plitka-seraya/",
+      "title": "Гранитная плитка серая | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/granit/tproduct/471772126-932682468731-granitnaya-plitka-seraya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/granit/tproduct/471772126-671505631651-granitnaya-plitka-mansurovskaya/",
+      "title": "Гранитная плитка Мансуровская | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/granit/tproduct/471772126-671505631651-granitnaya-plitka-mansurovskaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-804528549040-bruschatka-pilenaya-galtovannaya-uk/",
+      "title": "Брусчатка пиленая галтованная (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-804528549040-bruschatka-pilenaya-galtovannaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-696607890823-bruschatka-pilenaya-uk/",
+      "title": "Брусчатка пиленая (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-696607890823-bruschatka-pilenaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-550062636468-bruschatka-termoobrabotannaya-uk/",
+      "title": "Брусчатка термообработанная (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-550062636468-bruschatka-termoobrabotannaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-389255376754-bruschatka-krasnaya-mars-galtovannaya-rf/",
+      "title": "Брусчатка красная «Марс» галтованная (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-389255376754-bruschatka-krasnaya-mars-galtovannaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-657534438192-bruschatka-rvannaya-galtovannaya-sero-ze/",
+      "title": "Брусчатка рванная галтованная серо-зеленая(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-657534438192-bruschatka-rvannaya-galtovannaya-sero-ze/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-620203609714-bruschatka-pilenaya-sero-zelenaya-rf/",
+      "title": "Брусчатка пиленая серо-зеленая (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-620203609714-bruschatka-pilenaya-sero-zelenaya-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-625980862965-bruschatka-kolotaya-uk/",
+      "title": "Брусчатка колотая (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-625980862965-bruschatka-kolotaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-908365258215-bruschatka-shlifovannaya-kalibrovannaya/",
+      "title": "Брусчатка шлифованная калиброванная (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-908365258215-bruschatka-shlifovannaya-kalibrovannaya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-978038642665-bruschatka-seraya-rimskaya-kladka-rf/",
+      "title": "Брусчатка серая \"Римская кладка\" (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-978038642665-bruschatka-seraya-rimskaya-kladka-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-223763415150-bruschatka-iz-naturalnogo-kamnya-gamburg/",
+      "title": "Брусчатка из натурального камня Гамбург(UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-223763415150-bruschatka-iz-naturalnogo-kamnya-gamburg/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-467780509586-bruschatka-pilennaya-galtovannaya-sero-z/",
+      "title": "Брусчатка пиленная галтованная серо-зеленая (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-467780509586-bruschatka-pilennaya-galtovannaya-sero-z/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-130677196030-bruschatka-krasnaya-mars-rf/",
+      "title": "Брусчатка красная «Марс» (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-130677196030-bruschatka-krasnaya-mars-rf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-677299958559-bruschatka-kolotaya-galtovannaya-uk/",
+      "title": "Брусчатка колотая галтованная (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-677299958559-bruschatka-kolotaya-galtovannaya-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/bruschatka/tproduct/127242622-312534245467-bruschatka-rallen-uk/",
+      "title": "Брусчатка Раллен (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/bruschatka/tproduct/127242622-312534245467-bruschatka-rallen-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-peschanik-s-razvodami/tproduct/151439841-700942427892-peschanik-malinovii-s-razvodamirf/",
+      "title": "Песчаник Малиновый с разводами(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-peschanik-s-razvodami/tproduct/151439841-700942427892-peschanik-malinovii-s-razvodamirf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/kamen-peschanik-s-razvodami/tproduct/151439841-438884803349-peschanik-zheltii-s-razvodami-lugansk-uk/",
+      "title": "Песчаник «Желтый с разводами Луганск» (UK) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/kamen-peschanik-s-razvodami/tproduct/151439841-438884803349-peschanik-zheltii-s-razvodami-lugansk-uk/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-krasnyj-obozhzhenyj/tproduct/140990681-534763906393-plitka-dlya-oblitsovki-pilenii-krasnii-r/",
+      "title": "Плитка для облицовки пиленый красный (РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-krasnyj-obozhzhenyj/tproduct/140990681-534763906393-plitka-dlya-oblitsovki-pilenii-krasnii-r/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-krasnyj-obozhzhenyj/tproduct/140990681-705151176606-peschanik-krasnii-mars/",
+      "title": "Песчаник красный «Марс» | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-krasnyj-obozhzhenyj/tproduct/140990681-705151176606-peschanik-krasnii-mars/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-349571711551-poshagovie-dorozhki-sero-sinii/",
+      "title": "Пошаговые дорожки серо-синий | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-349571711551-poshagovie-dorozhki-sero-sinii/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-178986190177-viski-kamni-iz-sibirskogo-nefrita/",
+      "title": "Виски-камни из Сибирского нефрита | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-178986190177-viski-kamni-iz-sibirskogo-nefrita/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-329456113158-kostrische-iz-kamnya/",
+      "title": "Кострище из камня | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/dekorativnye-izdeliya-iz-kamnya/tproduct/161693805-329456113158-kostrische-iz-kamnya/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-lazurit/tproduct/151454147-882144472771-lazurit-galtovanniirf/",
+      "title": "Лазурит галтованный(РФ) | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-lazurit/tproduct/151454147-882144472771-lazurit-galtovanniirf/",
+      "robots": "noindex, nofollow"
+    },
+    {
+      "path": "/Kamen/peschanik-lazurit/tproduct/151454147-361365801720-kamen-peschanik-lazurit/",
+      "title": "Камень песчаник Лазурит | КаменьТорг23",
+      "h1": 1,
+      "canonical": "https://xn--23-6kcmj2apjjuu3j.xn--p1ai/peschanik-lazurit/tproduct/151454147-361365801720-kamen-peschanik-lazurit/",
+      "robots": "noindex, nofollow"
+    }
+  ]
+}

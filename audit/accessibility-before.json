@@ -1,0 +1,688 @@
+[
+  {
+    "path": "/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "nodes": [
+          {
+            "target": [
+              "#cue"
+            ],
+            "summary": "Fix all of the following:\n  aria-label attribute cannot be used on \"div\" elements with no valid role attribute."
+          }
+        ],
+        "count": 1
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "span:nth-child(1) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".service-strip > span:nth-child(2) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span:nth-child(3) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#applications > .section-heading > div > .section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.64 (foreground color: #73816e, background color: #f3f1e9, font size: 5.3pt (7px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#applications > .section-heading > .section-intro"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #6a7368, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"oblicovochniykamen/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"bruschatka/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card:nth-child(3) > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"catalog/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#materials > .page-shell > .section-heading > div > .section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.39 (foreground color: #73816e, background color: #e9eade, font size: 5.3pt (7px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#materials > .page-shell > .section-heading > .section-intro"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.05 (foreground color: #6a7368, background color: #e9eade, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"peschanik-sero-zelenyj/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"peschanik-galtovannyj/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"kamen-fontanka/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"kamen-lapsha/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "count": 102
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "nodes": [
+          {
+            "target": [
+              ".site-nav > .site-brand[href$=\"Kamen/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".site-nav-cta"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".service-strip"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#applications"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#materials"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#portfolio"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#service"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".estimate-copy"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-topline"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-pair:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "form > label:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "label:nth-child(4)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-pair:nth-child(5)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".consent"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-note"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          }
+        ],
+        "count": 17
+      }
+    ]
+  },
+  {
+    "path": "/catalog/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "errors": [],
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.64 (foreground color: #73816e, background color: #f3f1e9, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".document-intro"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4 (foreground color: #6b7b62, background color: #f3f1e9, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "label:nth-child(1)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.51 (foreground color: #738566, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "label:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.51 (foreground color: #738566, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "label:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.51 (foreground color: #738566, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".selection-help"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.46 (foreground color: #7a8470, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(1) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(2) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(3) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(4) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(5) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(6) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(7) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(8) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(9) > .real-product-content > p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.45 (foreground color: #78886a, background color: #f6f4ed, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "count": 158
+      },
+      {
+        "id": "heading-order",
+        "impact": "moderate",
+        "description": "Ensure the order of headings is semantically correct",
+        "nodes": [
+          {
+            "target": [
+              "article:nth-child(1) > .real-product-content > h3"
+            ],
+            "summary": "Fix any of the following:\n  Heading order invalid"
+          }
+        ],
+        "count": 1
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "nodes": [
+          {
+            "target": [
+              ".document-nav > .site-brand[href$=\"Kamen/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".site-nav-cta"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          }
+        ],
+        "count": 2
+      }
+    ]
+  },
+  {
+    "path": "/#calculator",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "span:nth-child(1) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".service-strip > span:nth-child(2) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span:nth-child(3) > i"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.48 (foreground color: #939e86, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#applications > .section-heading > div > .section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.64 (foreground color: #73816e, background color: #f3f1e9, font size: 5.3pt (7px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#applications > .section-heading > .section-intro"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.35 (foreground color: #6a7368, background color: #f3f1e9, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"oblicovochniykamen/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"bruschatka/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card:nth-child(3) > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".application-card[href$=\"catalog/\"] > .application-note"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.42 (foreground color: #7c8475, background color: #f3f1e9, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#materials > .page-shell > .section-heading > div > .section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.39 (foreground color: #73816e, background color: #e9eade, font size: 5.3pt (7px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#materials > .page-shell > .section-heading > .section-intro"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.05 (foreground color: #6a7368, background color: #e9eade, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"peschanik-sero-zelenyj/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"peschanik-galtovannyj/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"kamen-fontanka/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"kamen-lapsha/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.83 (foreground color: #657b53, background color: #e9eade, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "count": 102
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "nodes": [
+          {
+            "target": [
+              ".site-nav > .site-brand[href$=\"Kamen/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".site-nav-cta"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".service-strip"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#applications"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#materials"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#portfolio"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "#service"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".estimate-copy"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-topline"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-pair:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "form > label:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              "label:nth-child(4)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-pair:nth-child(5)"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".consent"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".form-note"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          }
+        ],
+        "count": 17
+      }
+    ]
+  },
+  {
+    "path": "/contact/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".section-label"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.64 (foreground color: #73816e, background color: #f3f1e9, font size: 5.3pt (7px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".service-copy > p:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.17 (foreground color: #607b4f, background color: #f3f1e9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "p:nth-child(3) > a[href=\"tel:+79189927987\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.17 (foreground color: #607b4f, background color: #f3f1e9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "p:nth-child(3) > a[href=\"mailto:kamentorg23@mail.ru\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.17 (foreground color: #607b4f, background color: #f3f1e9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "p:nth-child(4)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.17 (foreground color: #607b4f, background color: #f3f1e9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(2) > p:nth-child(1)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.57 (foreground color: #919b83, background color: #f3f1e9, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "p:nth-child(2) > a[target=\"_blank\"][rel=\"noopener noreferrer\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.57 (foreground color: #919b83, background color: #f3f1e9, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-contacts > small"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.14 (foreground color: #a0aa93, background color: #f3f1e9, font size: 6.8pt (9px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-bottom > span:nth-child(1)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.1 (foreground color: #a0ac94, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.1 (foreground color: #a0ac94, background color: #f3f1e9, font size: 6.0pt (8px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-bottom > a[href$=\"information/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.1 (foreground color: #a0ac94, background color: #f3f1e9, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"#top\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.1 (foreground color: #a0ac94, background color: #f3f1e9, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ],
+        "count": 12
+      },
+      {
+        "id": "region",
+        "impact": "moderate",
+        "description": "Ensure all page content is contained by landmarks",
+        "nodes": [
+          {
+            "target": [
+              ".document-nav > .site-brand[href$=\"Kamen/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          },
+          {
+            "target": [
+              ".site-nav-cta"
+            ],
+            "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+          }
+        ],
+        "count": 2
+      }
+    ]
+  },
+  {
+    "repro": "stale-copy",
+    "stale": true
+  },
+  {
+    "repro": "stale-mail",
+    "stale": true
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "path": "/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "path": "/catalog/",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "path": "/#calculator",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "path": "/contact/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "path": "/peschanik-sero-zelenyj/tproduct/127239493-343644535260-peschanik-sero-zelenii-rf/",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "path": "/catalog/?audit-menu=1",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "errors": [],
+    "violations": []
+  },
+  {
+    "repro": "stale-copy",
+    "stale": false
+  },
+  {
+    "repro": "stale-mail",
+    "stale": false
+  }
+]

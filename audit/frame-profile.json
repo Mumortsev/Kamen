@@ -1,0 +1,14 @@
+{
+  "method": "Chromium mobile 412×892 DPR3, CPU 4×, 120 native scroll steps; not a physical GPU measurement",
+  "frames": 119,
+  "medianMs": 16.699999999999818,
+  "p95Ms": 33.399999999999636,
+  "maxMs": 66.69999999999982,
+  "over33": 4,
+  "quality": "full",
+  "canvas": {
+    "width": 412,
+    "height": 428
+  },
+  "copyVisible": true
+}

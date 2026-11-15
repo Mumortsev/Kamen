@@ -1,0 +1,136 @@
+{
+  "base": "http://127.0.0.1:8766/Kamen",
+  "results": [
+    {
+      "name": "chromium: layout and reversible hero 320×740",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: layout and reversible hero 390×844",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: layout and reversible hero 768×1024",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: layout and reversible hero 844×390",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: layout and reversible hero 1440×900",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: catalog, detail, calculation and mail workflow",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "chromium: renderer failure keeps catalog, menu and calculator usable",
+      "pass": true,
+      "detail": {
+        "failures": [
+          "manifest",
+          "texture",
+          "canvas"
+        ]
+      }
+    },
+    {
+      "name": "chromium: reduced motion, not-found and static anchor",
+      "pass": true,
+      "detail": {}
+    },
+    {
+      "name": "chromium: repeated client navigation releases hero listeners",
+      "pass": true,
+      "detail": {
+        "initialScrollListeners": 1,
+        "awayCounts": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "returnedScrollListeners": 1
+      }
+    },
+    {
+      "name": "webkit: layout and reversible hero 320×740",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: layout and reversible hero 390×844",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: layout and reversible hero 768×1024",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: layout and reversible hero 844×390",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: layout and reversible hero 1440×900",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: catalog, detail, calculation and mail workflow",
+      "pass": true,
+      "detail": {
+        "errors": []
+      }
+    },
+    {
+      "name": "webkit: renderer failure keeps catalog, menu and calculator usable",
+      "pass": true,
+      "detail": {
+        "failures": [
+          "manifest",
+          "texture",
+          "canvas"
+        ]
+      }
+    },
+    {
+      "name": "webkit: reduced motion, not-found and static anchor",
+      "pass": true,
+      "detail": {}
+    }
+  ]
+}

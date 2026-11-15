@@ -1,0 +1,25 @@
+[
+  {
+    "name": "real Node endpoint to local receiver",
+    "pass": true,
+    "material": "Песчаник Серо-зеленый (РФ)",
+    "area": "60",
+    "tokenServerOnly": true
+  },
+  {
+    "name": "HTML instead of acknowledgement",
+    "pass": true
+  },
+  {
+    "name": "JSON without acknowledgement",
+    "pass": true
+  },
+  {
+    "name": "malformed Host does not crash the server",
+    "pass": true
+  },
+  {
+    "name": "production headers, canonical, indexability and 404",
+    "pass": true
+  }
+]

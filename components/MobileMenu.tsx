@@ -55,7 +55,15 @@ export default function MobileMenu() {
     <button ref={trigger} type="button" className="mobile-menu-trigger" aria-label="Открыть меню" aria-controls={mounted?id:undefined} aria-expanded={open} onClick={show}>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    {mounted ? createPortal(<dialog ref={panel} id={id} className="mobile-menu-panel" aria-labelledby={`${id}-title`} onClose={() => { unlock(); setOpen(false); }} onClick={event => {
+    {mounted ? createPortal(<dialog ref={panel} id={id} className="mobile-menu-panel" aria-labelledby={`${id}-title`} onKeyDown={event=>{
+      if(event.key!=='Tab')return;
+      const items=Array.from(event.currentTarget.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex="0"]')).filter(node=>node.getClientRects().length>0);
+      if(!items.length)return;
+      event.preventDefault();
+      const current=items.indexOf(document.activeElement as HTMLElement);
+      const next=current<0?(event.shiftKey?items.length-1:0):(current+(event.shiftKey?-1:1)+items.length)%items.length;
+      items[next].focus();
+    }} onClose={() => { unlock(); setOpen(false); }} onClick={event => {
       if (event.target !== event.currentTarget) return;
       const bounds = event.currentTarget.getBoundingClientRect();
       if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) close();
