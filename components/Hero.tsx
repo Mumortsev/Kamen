@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { asset } from '@/lib/paths';
+import MobileMenu from './MobileMenu';
 import company from '@/data/company.json';
 
 export default function Hero() {
@@ -23,7 +24,7 @@ export default function Hero() {
       <header className="reveal" id="header" inert hidden>
         <a className="brand" href="#" aria-label={`${company.name} — в начало`}><span className="brand-word">КАМЕНЬТОРГ<span className="brand-number">23</span><small>ПРИРОДНЫЙ КАМЕНЬ</small></span></a>
         <nav aria-label="Основное меню"><Link href="/catalog/">Каталог</Link><a href="#service">Доставка и монтаж</a><a href="#contacts">Контакты</a></nav>
-        <a className="phone" href={`tel:${company.phoneHref}`}>{company.phone}</a>
+        <a className="phone" href={`tel:${company.phoneHref}`}>{company.phone}</a><MobileMenu/>
       </header>
       <div className="hero-copy reveal" id="copy" inert hidden><p className="eyebrow"><span />ПРИРОДНЫЙ КАМЕНЬ · КРАСНОДАР</p><h1>Вашему дому<br /><span>идёт камень.</span></h1></div>
       <div className="hero-finishes reveal" id="hero-finishes" role="group" aria-label="Визуализация отделки фасада" aria-busy="false" hidden inert>

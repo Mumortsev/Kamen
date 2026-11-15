@@ -135,3 +135,18 @@ html.page-scroll{scroll-padding-top:88px}.page-section,.calculator-section{scrol
 .article-links{display:grid;gap:15px;margin:30px 0}.article-links a{padding:18px 0;border-bottom:1px solid #c8d1bb;font-size:20px;line-height:1.5}.article-copy section{padding-block:25px;border-bottom:1px solid #d4dbc9}.article-copy p{margin:0 0 12px}.article-copy{padding-top:35px}
 /* Native checkboxes replace the previous custom checkmark overlay. */
 .calc-service input{position:static;inset:auto;opacity:1;width:18px;height:18px;z-index:auto;margin:0;display:block;flex:none}
+
+/* One mobile navigation panel shared by the hero, sticky bar and document pages. */
+.mobile-menu-trigger{display:none;flex:none;align-items:center;justify-content:center;width:44px;height:44px;padding:10px;background:transparent;color:inherit;border:1px solid #52684b45;border-radius:3px}
+.mobile-menu-trigger svg,.mobile-menu-close svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+.mobile-menu-panel{position:fixed;inset:0 0 0 auto;margin:0;width:min(420px,100%);max-width:none;height:100dvh;max-height:none;padding:max(22px,env(safe-area-inset-top)) 7% max(26px,env(safe-area-inset-bottom));border:0;border-radius:0;background:#f3f1e9;color:#2b4132;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+.mobile-menu-panel::backdrop{background:#0c2018a6;backdrop-filter:none}
+.mobile-menu-heading{position:sticky;top:-1px;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 18px;background:#f3f1e9}
+.mobile-menu-heading>span{font-size:16px;font-weight:600;letter-spacing:.015em}.mobile-menu-heading small{display:block;font-size:6px;font-weight:400;letter-spacing:.15em;margin-top:8px}
+.mobile-menu-close{display:flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;padding:10px;border:1px solid #536b4840;border-radius:3px;background:transparent;color:inherit}
+.mobile-menu-panel .mobile-menu-links{display:flex;flex-direction:column;gap:0;margin:12px 0 28px}
+.mobile-menu-links a{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 0;border-bottom:1px solid #c9d1be;font-size:20px;line-height:1.4;letter-spacing:-.025em}
+.mobile-menu-links a small{font-size:9px;color:#859476;letter-spacing:.05em}.mobile-menu-links a:hover{color:#64804d}
+.mobile-menu-contact{display:grid;gap:14px;font-size:13px;line-height:1.7;color:#627b50}.mobile-menu-contact .mobile-menu-phone{font-size:23px;font-weight:500;letter-spacing:-.035em;color:#314c34}.mobile-menu-contact p{margin:4px 0;font-size:12px}
+@media(max-width:700px),(max-aspect-ratio:4/5){.mobile-menu-trigger{display:flex}#header{gap:10px}#header .phone{margin-left:auto}.document-nav,.site-nav{gap:10px}.document-nav .site-nav-cta,.site-nav .site-nav-cta{margin-left:auto}.mobile-menu-panel .mobile-menu-links{display:flex}}
+@media(max-width:360px){#header .brand-word{font-size:11px}#header .phone{font-size:8px}.document-nav .site-nav-cta,.site-nav .site-nav-cta{font-size:8px;padding:9px 8px}.document-nav .site-brand>span,.site-nav .site-brand>span{font-size:11px}.mobile-menu-links a{font-size:18px}}
