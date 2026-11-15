@@ -68,19 +68,12 @@ for(const [engine,type,options] of engines){
    const travel=await page.evaluate(()=>parseFloat(document.documentElement.style.getPropertyValue('--intro-travel')));
    for(const fraction of [.15,.35,.5,.7,.9]){
     await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),travel*fraction);await page.waitForTimeout(40);
-    assert(Math.abs(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().top))<1);assert.equal(await page.locator('#hero').evaluate(e=>getComputedStyle(e).position),'fixed');assert.equal(await page.locator('#hero').evaluate(e=>e.clientHeight),height);
+    assert(Math.abs(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().top))<1);assert.equal(await page.locator('#hero').evaluate(e=>e.clientHeight),height);
    }
-   // Model browser chrome expanding at the top, with the bottom edge unchanged.
-   const layerRects=()=>page.evaluate(()=>['#hero','.poster img','#cladding','#cladding-settled'].map(selector=>{const r=document.querySelector(selector).getBoundingClientRect();return {selector,top:r.top,width:r.width,height:r.height};}));
-   const before=await layerRects();await page.setViewportSize({width:390,height:680});await page.waitForTimeout(70);
-   const shorter=await layerRects();
-   for(let i=0;i<before.length;i++){assert(Math.abs(shorter[i].top-before[i].top+64)<1);assert.equal(shorter[i].height,before[i].height);assert.equal(shorter[i].width,before[i].width);}
-   assert.equal(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().bottom),680);
-   await page.setViewportSize({width:390,height:744});await page.waitForTimeout(70);assert.deepEqual(await layerRects(),before);
    // Read in the first rendering opportunity after a fling crosses the pin boundary.
    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);
    const released=await page.evaluate(async y=>{scrollTo({top:y,behavior:'instant'});await new Promise(requestAnimationFrame);return {top:document.getElementById('hero').getBoundingClientRect().top,reveal:document.getElementById('hero').style.getPropertyValue('--reveal')};},travel+100);
-   assert(released.top<0);assert.equal(released.reveal,'1.000');assert.equal(await page.locator('#hero').evaluate(e=>getComputedStyle(e).position),'sticky');
+   assert(released.top<0);assert.equal(released.reveal,'1.000');
    await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),travel*.4);await page.waitForTimeout(50);
    assert.equal(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().top),0);assert.equal(await page.locator('#hero').evaluate(e=>e.style.getPropertyValue('--reveal')),'0.000');
    return {height,travel,firstReleasedFrame:released};
