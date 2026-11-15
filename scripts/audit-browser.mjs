@@ -57,6 +57,28 @@ for(const [engine,type,options] of engines){
  await check(`${engine}: reduced motion, not-found and static anchor`,async()=>{
   const context=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'});const page=await context.newPage();try{await page.goto(base+'/#calculator',{waitUntil:'networkidle'});await page.waitForFunction(()=>document.documentElement.classList.contains('ready'));assert.equal(await page.locator('.cue svg').evaluate(e=>getComputedStyle(e).animationName),'none');const response=await page.goto(base+'/does-not-exist/');assert.equal(response.status(),404);assert(await page.locator('#content').count()===1);return{};}finally{await context.close();}
  });
+ await check(`${engine}: hero stays pinned until all copy is revealed, including a fast swipe`,async()=>{
+  const context=await browser.newContext({viewport:{width:390,height:744},hasTouch:true});
+  // A mobile visual viewport can be shorter than the stable layout viewport.
+  await context.addInitScript(()=>Object.defineProperty(window,'visualViewport',{value:{height:680},configurable:true}));
+  const page=await context.newPage();
+  try{
+   await page.goto(base+'/');await page.waitForFunction(()=>document.documentElement.classList.contains('ready'));
+   const height=await page.locator('#hero').evaluate(e=>e.clientHeight);assert.equal(height,744);
+   const travel=await page.evaluate(()=>parseFloat(document.documentElement.style.getPropertyValue('--intro-travel')));
+   for(const fraction of [.15,.35,.5,.7,.9]){
+    await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),travel*fraction);await page.waitForTimeout(40);
+    assert(Math.abs(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().top))<1);assert.equal(await page.locator('#hero').evaluate(e=>e.clientHeight),height);
+   }
+   // Read in the first rendering opportunity after a fling crosses the pin boundary.
+   await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);
+   const released=await page.evaluate(async y=>{scrollTo({top:y,behavior:'instant'});await new Promise(requestAnimationFrame);return {top:document.getElementById('hero').getBoundingClientRect().top,reveal:document.getElementById('hero').style.getPropertyValue('--reveal')};},travel+100);
+   assert(released.top<0);assert.equal(released.reveal,'1.000');
+   await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),travel*.4);await page.waitForTimeout(50);
+   assert.equal(await page.locator('#hero').evaluate(e=>e.getBoundingClientRect().top),0);assert.equal(await page.locator('#hero').evaluate(e=>e.style.getPropertyValue('--reveal')),'0.000');
+   return {height,travel,firstReleasedFrame:released};
+  }finally{await context.close();}
+ });
  if(engine==='chromium')await check('chromium: repeated client navigation releases hero listeners',async()=>{
   const context=await browser.newContext();const page=await context.newPage();const cdp=await context.newCDPSession(page);
   const listeners=async()=>{const r=await cdp.send('Runtime.evaluate',{expression:'(getEventListeners(window).scroll||[]).length',includeCommandLineAPI:true,returnByValue:true});return r.result.value;};

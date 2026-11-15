@@ -60,6 +60,18 @@
       "detail": {}
     },
     {
+      "name": "chromium: hero stays pinned until all copy is revealed, including a fast swipe",
+      "pass": true,
+      "detail": {
+        "height": 744,
+        "travel": 1079,
+        "firstReleasedFrame": {
+          "top": -100,
+          "reveal": "1.000"
+        }
+      }
+    },
+    {
       "name": "chromium: repeated client navigation releases hero listeners",
       "pass": true,
       "detail": {
@@ -131,6 +143,18 @@
       "name": "webkit: reduced motion, not-found and static anchor",
       "pass": true,
       "detail": {}
+    },
+    {
+      "name": "webkit: hero stays pinned until all copy is revealed, including a fast swipe",
+      "pass": true,
+      "detail": {
+        "height": 744,
+        "travel": 1079,
+        "firstReleasedFrame": {
+          "top": -100,
+          "reveal": "1.000"
+        }
+      }
     }
   ]
 }

@@ -46,6 +46,8 @@ h1>span{display:block;margin-top:.16em}
 .hero-lower{bottom:10%;gap:25px}.description{font-size:10px;line-height:1.6}.primary,.secondary{font-size:10px;padding:11px 15px;min-height:40px}
 }
 
+/* Keep the hero out of browser scroll-anchor adjustments while layers appear. */
+#story{overflow-anchor:none}
 /* The hero stays sticky during its reversible native-scroll timeline. */
 #story{position:relative;inset:auto;width:100%;height:calc(var(--scene-h) + var(--intro-travel,100vh));overflow:visible}.scene{position:sticky;inset:0 auto auto 0;touch-action:pan-y pinch-zoom}
 html.page-scroll,html.page-scroll body{position:static;inset:auto;height:auto;min-height:100%;overscroll-behavior-y:auto}html.page-scroll{overflow-x:clip;overflow-y:auto}html.page-scroll body{overflow:visible}
