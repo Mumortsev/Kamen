@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-11-15T14:05:00.407Z",
+  "releaseCommit": "1fd96a1ef49ace834349bfcfacee1974ad719443",
+  "workflow": "https://github.com/Mumortsev/Kamen/actions/runs/43722268454",
+  "base": "https://mumortsev.github.io/Kamen",
+  "engine": "Chromium Linux, mobile viewport emulation",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/catalog/",
+      "status": 200
+    },
+    {
+      "path": "/contact/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/",
+      "status": 200
+    },
+    {
+      "path": "/favicon.ico",
+      "status": 200
+    },
+    {
+      "path": "/icon.svg",
+      "status": 200
+    },
+    {
+      "path": "/does-not-exist/",
+      "status": 404
+    },
+    {
+      "name": "hero initializes",
+      "pass": true
+    },
+    {
+      "name": "145 products and mobile menu open/close",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "realLeadsSent": false
+}
