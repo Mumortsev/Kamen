@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-15T14:18:09.214Z",
+  "releaseCommit": "53b090277f08be26db614e16a16e5dca8efed422",
+  "url": "https://mumortsev.github.io/Kamen/",
+  "engine": "Chromium Linux mobile emulation",
+  "pinned": [
+    {
+      "fraction": 0.2,
+      "top": 0
+    },
+    {
+      "fraction": 0.4,
+      "top": 0
+    },
+    {
+      "fraction": 0.6,
+      "top": 0
+    },
+    {
+      "fraction": 0.8,
+      "top": 0
+    }
+  ],
+  "firstReleasedFrame": {
+    "top": -100,
+    "reveal": "1.000"
+  },
+  "reversePin": true,
+  "errors": []
+}
