@@ -46,3 +46,7 @@ Three photographic facade options are available: the original warm sandstone, ge
 The calculator receives the chosen finish as a design preference, not an invented product price. Its existing material selection and pricing model remain explicit; the preference appears in the copied estimate and facade request summary. Hero CTA sets the task to facade before opening the calculator.
 
 Reviewed: 390 × 844, 320 × 680, 1440 × 900 and 1220 × 434; all three finishes, reverse to bare concrete, lazy loading, calculator preference and copy text, and absence of browser errors/failed resources. A 4× CPU comparison run recorded median RAF interval 16.7 ms and p95 animation callback 3.4 ms. This does not measure a physical Pixel GPU or guarantee 60 fps.
+
+## Next.js migration
+
+The site now builds through Next.js App Router with static HTML output for GitHub Pages and the same components/data in production. Marketing, product content and category pages are server components. Canvas runs in a deferred independent module without React state updates per frame, with AbortController cleanup and bitmap disposal on navigation. Calculator and catalog search receive reduced data rather than full descriptions. Local Geologica WOFF2 files are about 38 KB each versus about 130 KB TTF. Real product images are local WebP, with explicit dimensions and native lazy loading. The hero preserves native reversible scrolling and lazily loaded finish atlases.

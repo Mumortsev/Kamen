@@ -1,0 +1,5 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { asset } from '@/lib/paths';
+import { productPrice,type Product } from '@/lib/catalog';
+export default function ProductCard({product}:{product:Product}){return <article className="real-product-card"><Link href={product.path+'/'} prefetch={false} className="real-product-image">{product.images[0]?<Image src={asset(product.images[0].src)} width={600} height={450} alt={product.images[0].alt} loading="lazy"/>:<div className="image-placeholder">Природный камень</div>}</Link><div className="real-product-content"><p className="product-price">{productPrice(product)}{!product.unit&&product.price>0?<small>Единица продажи уточняется</small>:null}</p><h3><Link prefetch={false} href={product.path+'/'}>{product.name}</Link></h3><p>{product.terms||'Наличие, вариант исполнения и условия заказа уточняются.'}</p><Link prefetch={false} className="text-action" href={product.path+'/'}>Посмотреть камень <span>↗</span></Link></div></article>;}

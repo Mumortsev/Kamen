@@ -1,2 +1,8 @@
 .DS_Store
-assets/*.png
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+*.tsbuildinfo
+public/assets/*.png
