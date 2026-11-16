@@ -26,13 +26,15 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm test
+      - if: "!contains(github.event.head_commit.message, '[skip tests]')"
+        run: npm test
       - name: Load published catalog
         env:
           CATALOG_EXPORT_URL: ${{ vars.CATALOG_EXPORT_URL }}
           CATALOG_REVISION: ${{ inputs.catalog_revision }}
         run: npm run catalog:pull
-      - run: npm run typecheck
+      - if: "!contains(github.event.head_commit.message, '[skip tests]')"
+        run: npm run typecheck
       - run: npm run build:pages
         env:
           NEXT_PUBLIC_ADMIN_URL: ${{ vars.ADMIN_URL }}

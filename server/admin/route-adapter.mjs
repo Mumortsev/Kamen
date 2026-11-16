@@ -1,3 +1,4 @@
+import {sendLeadEmail} from '../lead-email.mjs';
 import {Readable} from 'node:stream';
 import {createAdminHandler} from './handler.mjs';
 import {createLeadHandler} from '../lead-handler.mjs';
@@ -5,7 +6,7 @@ import {getStore} from './store.mjs';
 import {checkEstimate,checkProject} from './quote.mjs';
 let handlers;
 export async function handleRequest(request){
- handlers??={admin:createAdminHandler({siteUrl:process.env.SITE_URL||''}),lead:createLeadHandler({webhookUrl:process.env.LEAD_WEBHOOK_URL,webhookToken:process.env.LEAD_WEBHOOK_TOKEN,siteUrl:process.env.SITE_URL,saveLead:async payload=>(await getStore()).addLead(payload),resolveEstimate:async (selection,project)=>{const catalog=await(await getStore()).published();return project?checkProject(project,catalog):checkEstimate(selection,catalog);}})};
+ handlers??={admin:createAdminHandler({siteUrl:process.env.SITE_URL||''}),lead:createLeadHandler({webhookUrl:process.env.LEAD_WEBHOOK_URL,webhookToken:process.env.LEAD_WEBHOOK_TOKEN,siteUrl:process.env.SITE_URL,notifyLead:sendLeadEmail,recordEmail:async(id,delivery)=>(await getStore()).setLeadEmail(id,delivery),saveLead:async payload=>(await getStore()).addLead(payload),resolveEstimate:async (selection,project)=>{const catalog=await(await getStore()).published();return project?checkProject(project,catalog):checkEstimate(selection,catalog);}})};
  const stream=request.body?Readable.fromWeb(request.body):Readable.from([]);
  // Vercel overwrites its forwarding header at the platform boundary. A local
  // self-hosted server keeps using its explicitly configured proxy-hop policy.

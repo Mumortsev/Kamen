@@ -1,8 +1,9 @@
 import {cache} from 'react';
 import {connection} from 'next/server';
 import seed from '@/data/catalog.json';
+import type {SiteImages} from './site-images';
 import type {Product,Category} from './catalog';
-export type CatalogData={products:Product[];categories:Category[];revision?:number;checkedAt:string;source:string};
+export type CatalogData={products:Product[];categories:Category[];revision?:number;checkedAt:string;source:string;siteImages?:SiteImages};
 // Pages gets one immutable build snapshot. The server reads the published database
 // once per request, shared by metadata, cards and calculator through React cache.
 export const getCatalog=cache(async():Promise<CatalogData>=>{

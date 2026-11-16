@@ -8,7 +8,7 @@ export function clientAddress(req, trustedHops = 0) {
   const chain = [...forwarded, remote];
   return chain[Math.max(0, chain.length - 1 - trustedHops)];
 }
-export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedProxyHops=0, send=fetch, now=Date.now, timeoutMs=10000, maxAttempts=5, resolveEstimate, saveLead } = {}) {
+export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedProxyHops=0, send=fetch, now=Date.now, timeoutMs=10000, maxAttempts=5, resolveEstimate, saveLead, notifyLead, recordEmail } = {}) {
   const attempts = new Map();
   let lastCleanup = 0;
   return async function lead(req, res) {
@@ -51,9 +51,11 @@ export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedPr
       const payload={...validation.value,...(checked||{}),source:'kamentorg23',receivedAt:new Date(timestamp).toISOString()};
       delete payload.website;
       const id=saveLead?await saveLead(payload):null;
-      if(!webhookUrl){if(id)return answer(200,{ok:true,id});return answer(503,{error:'Не удалось сохранить заявку. Позвоните нам или напишите на почту.'});}
-      let destination;try{destination=new URL(webhookUrl);if(!['http:','https:'].includes(destination.protocol))throw Error('scheme');}catch{if(id)return answer(200,{ok:true,id});return answer(503,{error:'Отправка не подключена.'});}
-      let result;try{result=await send(destination,{method:'POST',headers:{'Content-Type':'application/json',...(webhookToken?{Authorization:`Bearer ${webhookToken}`}:{})},body:JSON.stringify(payload),redirect:'error',signal:AbortSignal.timeout(timeoutMs)});}catch(error){if(id)return answer(200,{ok:true,id});throw error;}
+      const emailTask=notifyLead?Promise.resolve().then(()=>notifyLead(payload)).then(async delivery=>{if(id&&recordEmail)await recordEmail(id,delivery);}).catch(()=>{}):Promise.resolve();
+      if(!webhookUrl){await emailTask;if(id)return answer(200,{ok:true,id});return answer(503,{error:'Не удалось сохранить заявку. Позвоните нам или напишите на почту.'});}
+      let destination;try{destination=new URL(webhookUrl);if(!['http:','https:'].includes(destination.protocol))throw Error('scheme');}catch{await emailTask;if(id)return answer(200,{ok:true,id});return answer(503,{error:'Отправка не подключена.'});}
+      let result;try{result=await send(destination,{method:'POST',headers:{'Content-Type':'application/json',...(webhookToken?{Authorization:`Bearer ${webhookToken}`}:{})},body:JSON.stringify(payload),redirect:'error',signal:AbortSignal.timeout(timeoutMs)});}catch(error){await emailTask;if(id)return answer(200,{ok:true,id});throw error;}
+      await emailTask;
       if(!result.ok&&!id)return answer(502,{error:'Не удалось передать заявку. Попробуйте письмо или звонок.'});
       return answer(200,{ok:true,...(id?{id}:{})});
     }catch{return answer(502,{error:'Не удалось обработать заявку. Попробуйте письмо или звонок.'});}

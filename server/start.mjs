@@ -1,3 +1,4 @@
+import {sendLeadEmail} from './lead-email.mjs';
 import { createServer } from 'node:http';
 import next from 'next';
 import nextEnv from '@next/env';
@@ -13,7 +14,7 @@ await app.prepare();
 const handle=app.getRequestHandler();
 const hops=Number(process.env.TRUST_PROXY_HOPS||0);
 if(!Number.isInteger(hops)||hops<0||hops>10)throw Error('TRUST_PROXY_HOPS must be an integer from 0 to 10');
-const lead=createLeadHandler({webhookUrl:process.env.LEAD_WEBHOOK_URL,webhookToken:process.env.LEAD_WEBHOOK_TOKEN,siteUrl:process.env.SITE_URL,trustedProxyHops:hops,saveLead:async payload=>(await getStore()).addLead(payload),resolveEstimate:async (selection,project)=>{const catalog=await(await getStore()).published();return project?checkProject(project,catalog):checkEstimate(selection,catalog);}});
+const lead=createLeadHandler({webhookUrl:process.env.LEAD_WEBHOOK_URL,webhookToken:process.env.LEAD_WEBHOOK_TOKEN,siteUrl:process.env.SITE_URL,trustedProxyHops:hops,notifyLead:sendLeadEmail,recordEmail:async(id,delivery)=>(await getStore()).setLeadEmail(id,delivery),saveLead:async payload=>(await getStore()).addLead(payload),resolveEstimate:async (selection,project)=>{const catalog=await(await getStore()).published();return project?checkProject(project,catalog):checkEstimate(selection,catalog);}});
 const admin=createAdminHandler({siteUrl:process.env.SITE_URL,trustedProxyHops:hops});
 const server=createServer(async(req,res)=>{
   try{

@@ -27,7 +27,7 @@ export default function RequestForm(){
   const endpoint=process.env.NEXT_PUBLIC_LEAD_ENDPOINT||(!staticBuild?'/api/leads':'');
   if(!endpoint){setMail(mailto);setNotice({message:'Заявка подготовлена. Откройте письмо и отправьте его на нашу почту — данные ещё не отправлены.',error:false});return;}
   const controller=new AbortController();pending.current=controller;setBusy(true);
-  const timeout=setTimeout(()=>controller.abort(),15000);
+  const timeout=setTimeout(()=>controller.abort(),35000);
   try{
    const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),signal:controller.signal});
    if(response.status===409){const conflict=await response.json();setSummary('');setEstimate(undefined);setProject(undefined);setMail('');setNotice({message:conflict.error||'Каталог изменился. Выполните расчёт ещё раз.',error:true});window.dispatchEvent(new Event('stone:catalog-refresh'));return;}

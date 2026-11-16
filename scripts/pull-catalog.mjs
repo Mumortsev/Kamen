@@ -1,5 +1,5 @@
 import{readFile,writeFile,mkdir}from'node:fs/promises';import{join}from'node:path';
-import{normalizeCategory,normalizeProduct,publicCatalog}from'../server/admin/validation.mjs';
+import{normalizeCategory,normalizeProduct,publicCatalog,normalizeSiteImages}from'../server/admin/validation.mjs';
 const endpoint=process.env.CATALOG_EXPORT_URL;
 if(!endpoint){if(process.env.CATALOG_REVISION)throw Error('Для публикации из админки настройте CATALOG_EXPORT_URL.');console.log('Pages: используется сохранённый каталог репозитория.');process.exit(0);}
 const url=new URL(endpoint);if(url.protocol!=='https:'&&url.hostname!=='127.0.0.1'&&url.hostname!=='localhost')throw Error('Источник каталога должен использовать HTTPS.');
@@ -7,7 +7,7 @@ async function download(url,limit){const r=await fetch(url,{signal:AbortSignal.t
 const source=JSON.parse((await download(url,20*1024*1024)).toString());
 if(!Number.isInteger(source.revision)||source.revision<1||!Array.isArray(source.products)||source.products.length>10000||!Array.isArray(source.categories)||source.categories.length>200||!Number.isFinite(Date.parse(source.checkedAt)))throw Error('Неверный опубликованный каталог.');
 if(process.env.CATALOG_REVISION&&String(source.revision)!==process.env.CATALOG_REVISION)throw Error('Этот запрос публикации устарел. Используйте последнюю редакцию каталога.');
-const categories=source.categories.map(normalizeCategory);const products=source.products.map(p=>normalizeProduct({...p,status:'published'},categories));const snapshot=publicCatalog({source:source.source,categories,products},source.revision,source.checkedAt);
-await mkdir('public/uploads',{recursive:true});const names=new Set(products.flatMap(p=>p.images.map(i=>i.src)).filter(src=>src.startsWith('/uploads/')));
+const categories=source.categories.map(normalizeCategory);const products=source.products.map(p=>normalizeProduct({...p,status:'published'},categories));const snapshot=publicCatalog({source:source.source,categories,products,...(source.siteImages?{siteImages:normalizeSiteImages(source.siteImages)}:{})},source.revision,source.checkedAt);
+await mkdir('public/uploads',{recursive:true});const names=new Set([...products.flatMap(p=>p.images.map(i=>i.src)),...(snapshot.siteImages?[...snapshot.siteImages.portfolio,...snapshot.siteImages.applications].map(i=>i.src):[])].filter(src=>src.startsWith('/uploads/')));
 for(const name of names){const bytes=await download(new URL(name,url.origin),10*1024*1024);if(bytes.subarray(0,4).toString()!=='RIFF'||bytes.subarray(8,12).toString()!=='WEBP')throw Error('Некорректная фотография.');await writeFile(join('public',name.slice(1)),bytes);}
 await writeFile('data/catalog.json',JSON.stringify(snapshot,null,2)+'\n');await writeFile('public/catalog-release.json',JSON.stringify({revision:snapshot.revision,checkedAt:snapshot.checkedAt}));console.log(`Pages: редакция ${snapshot.revision}, ${snapshot.products.length} опубликованных товаров.`);

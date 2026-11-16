@@ -24,7 +24,7 @@ export function publicCatalog(draft,revision,checkedAt){
  const categories=draft.categories.filter(c=>c.active!==false).sort((a,b)=>(a.order??0)-(b.order??0));const ids=new Set(categories.map(c=>c.id));
  const products=draft.products.filter(p=>p.status==='published'&&p.categories.some(id=>ids.has(id))).sort((a,b)=>a.order-b.order).map(({status,_version,...p})=>({...p,categories:p.categories.filter(id=>ids.has(id))}));
  const paths=[...categories,...products].map(p=>p.path);if(new Set(paths).size!==paths.length)fail('Адреса товаров и категорий должны различаться.');
- return{source:draft.source,checkedAt,revision,categories,products};
+ return{source:draft.source,checkedAt,revision,categories,products,...(draft.siteImages?{siteImages:draft.siteImages}:{})};
 }
 
 const letters={'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'e','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'};
@@ -37,4 +37,10 @@ export function withAutomaticPath(input,draft,kind){
  const occupied=new Set([...draft.products,...draft.categories].map(p=>p.path));
  const base=`/${kind}/${slug}`;let path=base,n=2;while(occupied.has(path))path=`${base}-${n++}`;
  return{...input,path};
+}
+
+export function normalizeSiteImages(input){
+ if(!input||typeof input!=='object'||!Array.isArray(input.portfolio)||input.portfolio.length>500||!Array.isArray(input.applications)||input.applications.length!==4)fail('Загрузите до 500 фотографий работ и четыре фото разделов.');
+ const photo=image=>{if(!image||typeof image!=='object')fail('Некорректная фотография.');const src=text(image.src,'Фото',180,true);if(!/^(?:imported\/[a-f0-9]+\.webp|\/uploads\/[a-f0-9-]+\.webp|https:\/\/[a-z0-9-]+\.public\.blob\.vercel-storage\.com\/kamentorg\/[a-f0-9-]+\.webp)$/.test(src))fail('Загрузите фотографию через панель.');return{src,alt:text(image.alt||'Природный камень','Описание фото',300),source:typeof image.source==='string'?image.source.slice(0,2000):''};};
+ return{portfolio:input.portfolio.map(photo),applications:input.applications.map(photo)};
 }
