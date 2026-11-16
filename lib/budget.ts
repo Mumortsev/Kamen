@@ -10,7 +10,9 @@ export function calculateBudget(input: BudgetInput) {
   if (!error && (!Number.isFinite(rate)||rate<0)) error='Уточните цену материала.';
   const bulk = product.unit==='kg';
   if(error)return {error,rate:Number.isFinite(rate)?rate:0,quantity:0,bags:0,total:0,quoted:rate<=0,bulk};
-  const bags = Math.ceil(area*(1+reserve/100)*depth/100*1600/25-1e-9);
-  const quantity = bulk ? bags*25 : Math.max(1,Math.ceil(area*(1+reserve/100)*10-1e-9)/10);
+  const density=product.density??1600,packSize=product.packSize??25,minimum=product.minimumOrder??1;
+  if(![density,packSize,minimum].every(n=>Number.isFinite(n)&&n>0))return {error:'Уточните параметры материала.',rate,quantity:0,bags:0,total:0,quoted:rate<=0,bulk};
+  const bags = Math.ceil(Math.max(area*(1+reserve/100)*depth/100*density,minimum)/packSize-1e-9);
+  const quantity = bulk ? bags*packSize : Math.max(minimum,Math.ceil(area*(1+reserve/100)*10-1e-9)/10);
   return { error, rate, quantity, bags, total: Math.round(rate*quantity), quoted: rate<=0, bulk };
 }

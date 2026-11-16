@@ -1,0 +1,6 @@
+import nextEnv from '@next/env';import{getStore}from'../server/admin/store.mjs';import{mkdir,cp,writeFile}from'node:fs/promises';import{resolve,join}from'node:path';
+nextEnv.loadEnvConfig(process.cwd());const store=await getStore();const directory=resolve(process.argv[2]||'backups/'+new Date().toISOString().replace(/[:.]/g,'-'));await mkdir(directory,{recursive:true});
+// Media are immutable and never physically removed by the editor. Copying after
+// SQLite's online backup includes every file referenced by that database snapshot.
+if(!store.backup){await writeFile(join(directory,'catalog.json'),JSON.stringify((await store.state()).draft,null,2));console.log('Каталог скопирован. Для полной копии PostgreSQL используйте резервирование Neon; фото остаются в Vercel Blob.');await store.close();process.exit(0);}
+await store.backup(join(directory,'catalog.sqlite'));await cp(join(store.directory,'uploads'),join(directory,'uploads'),{recursive:true});await writeFile(join(directory,'README.txt'),'Копия содержит базу, пользователей и фотографии. Храните вне публичного доступа. Для восстановления остановите сервер и замените каталог CATALOG_DATA_DIR этой копией.\n');store.close();console.log('Резервная копия создана: '+directory);

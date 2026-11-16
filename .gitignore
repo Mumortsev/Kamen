@@ -6,3 +6,10 @@ out/
 !.env.example
 *.tsbuildinfo
 public/assets/*.png
+
+var/
+backups/
+
+.vercel/
+public/uploads/
+public/catalog-release.json

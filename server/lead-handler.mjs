@@ -8,7 +8,7 @@ export function clientAddress(req, trustedHops = 0) {
   const chain = [...forwarded, remote];
   return chain[Math.max(0, chain.length - 1 - trustedHops)];
 }
-export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedProxyHops=0, send=fetch, now=Date.now, timeoutMs=10000, maxAttempts=5 } = {}) {
+export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedProxyHops=0, send=fetch, now=Date.now, timeoutMs=10000, maxAttempts=5, resolveEstimate } = {}) {
   const attempts = new Map();
   let lastCleanup = 0;
   return async function lead(req, res) {
@@ -46,10 +46,12 @@ export function createLeadHandler({ webhookUrl, webhookToken, siteUrl, trustedPr
       const recent=(attempts.get(ip)||[]).filter(t=>timestamp-t<60000);
       if(recent.length>=maxAttempts||(!attempts.has(ip)&&attempts.size>=5000)){res.setHeader('Retry-After','60');return answer(429,{error:'Повторите попытку через минуту.'});}
       recent.push(timestamp);attempts.set(ip,recent);
+      const checked=resolveEstimate?await resolveEstimate(validation.value.estimate):null;
+      if(checked?.error)return answer(409,{error:checked.error,code:'CATALOG_CHANGED'});
       let destination;
       try{destination=new URL(webhookUrl);if(!['https:','http:'].includes(destination.protocol))throw Error('scheme');}
       catch{return answer(503,{error:'Отправка ещё не подключена. Напишите на почту или позвоните.'});}
-      const payload={...validation.value,source:'kamentorg23',receivedAt:new Date(timestamp).toISOString()};
+      const payload={...validation.value,...(checked||{}),source:'kamentorg23',receivedAt:new Date(timestamp).toISOString()};
       delete payload.website;
       const result=await send(destination,{method:'POST',headers:{'Content-Type':'application/json',...(webhookToken?{Authorization:`Bearer ${webhookToken}`}:{})},body:JSON.stringify(payload),redirect:'error',signal:AbortSignal.timeout(timeoutMs)});
       if(!result.ok)return answer(502,{error:'Не удалось передать заявку. Попробуйте письмо или звонок.'});

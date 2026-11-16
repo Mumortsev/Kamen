@@ -3,6 +3,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      catalog_revision:
+        description: 'Published catalog revision requested by admin'
+        required: false
+        type: string
 permissions:
   contents: read
   actions: read
@@ -22,8 +27,17 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Load published catalog
+        env:
+          CATALOG_EXPORT_URL: ${{ vars.CATALOG_EXPORT_URL }}
+          CATALOG_REVISION: ${{ inputs.catalog_revision }}
+        run: npm run catalog:pull
       - run: npm run typecheck
       - run: npm run build:pages
+        env:
+          NEXT_PUBLIC_ADMIN_URL: ${{ vars.ADMIN_URL }}
+      - name: Save catalog release metadata
+        run: node -e "const fs=require('fs');const c=JSON.parse(fs.readFileSync('data/catalog.json'));fs.writeFileSync('out/catalog-release.json',JSON.stringify({revision:c.revision||1,checkedAt:c.checkedAt}));"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -57,3 +71,18 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages-${{ github.run_attempt }}
+      - name: Report publication status
+        if: always() && inputs.catalog_revision != ''
+        env:
+          CATALOG_EXPORT_URL: ${{ vars.CATALOG_EXPORT_URL }}
+          CALLBACK_TOKEN: ${{ secrets.PAGES_CALLBACK_TOKEN }}
+          CATALOG_REVISION: ${{ inputs.catalog_revision }}
+          DEPLOY_RESULT: ${{ steps.deployment.outcome }}
+        run: |
+          node --input-type=module <<'JS'
+          if (process.env.CATALOG_EXPORT_URL && process.env.CALLBACK_TOKEN) {
+            const url = new URL('/api/catalog/deploy-status', process.env.CATALOG_EXPORT_URL);
+            const response = await fetch(url, {method:'POST', headers:{'Content-Type':'application/json', Authorization:'Bearer '+process.env.CALLBACK_TOKEN}, body:JSON.stringify({revision:Number(process.env.CATALOG_REVISION),status:process.env.DEPLOY_RESULT==='success'?'deployed':'failed',runId:process.env.GITHUB_RUN_ID}), signal:AbortSignal.timeout(15000)});
+            if (!response.ok) throw Error('Could not report Pages status: '+response.status);
+          }
+          JS

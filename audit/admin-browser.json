@@ -1,0 +1,13 @@
+{
+  "base": "http://127.0.0.1:8777",
+  "method": "Isolated local Next.js production server, SQLite test database, Chromium touch viewport 390×844; no customer leads sent",
+  "steps": [
+    "owner login and protected catalog",
+    "new product, image optimization, variant, private draft",
+    "published product appears at a new URL with price, description and image",
+    "calculator uses the same variant price",
+    "stale quote is rejected before delivery; calculator refreshes to the new price",
+    "archived material disappears from calculator, public data and product route"
+  ],
+  "errors": []
+}
