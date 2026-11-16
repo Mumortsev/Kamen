@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-16T13:57:16.976Z",
+  "releaseCommit": "f35893989a4e175e618ee68d8f28e8c2fbefa4aa",
+  "url": "https://mumortsev.github.io/Kamen/admin/",
+  "workflow": "https://github.com/Mumortsev/Kamen/actions/runs/43880447455",
+  "checks": [
+    {
+      "viewport": 390,
+      "adminStatus": 200,
+      "readonly": true,
+      "preview": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "viewport": 1440,
+      "adminStatus": 200,
+      "readonly": true,
+      "preview": true,
+      "noHorizontalOverflow": true
+    },
+    {
+      "catalog": 145
+    },
+    {
+      "calculatorTotal": 22000,
+      "heroReady": true
+    }
+  ],
+  "errors": [],
+  "vercel": {
+    "deployed": false,
+    "cancelledByUser": true,
+    "resourcesCreated": false
+  }
+}

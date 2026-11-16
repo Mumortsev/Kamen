@@ -8,5 +8,10 @@
   "runtimeBuild": "Next.js production build includes native API, dynamic product URLs, sitemap and uploads routes.",
   "storage": "PostgreSQL + Vercel Blob for Vercel; SQLite + persistent uploads available for localhost/self-hosting.",
   "realCustomerLeadsSent": false,
-  "cloudDatabaseConnected": false
+  "cloudDatabaseConnected": false,
+  "deployment": {
+    "pages": "published and verified",
+    "vercel": "cancelled by user",
+    "liveAdminServer": "not deployed; hosting pending"
+  }
 }
