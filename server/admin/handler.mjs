@@ -27,7 +27,7 @@ export function createAdminHandler({store=getStore,siteUrl=process.env.SITE_URL|
     res.setHeader('Content-Type','image/webp');res.setHeader('Cache-Control','public, max-age=31536000, immutable');res.end(req.method==='HEAD'?undefined:bytes);return true;
    }
    if(path==='/api/catalog'){
-    if(req.method!=='GET')throw new AdminError('Метод не поддерживается.',405);const catalog=await db.published();if(new URL(req.url,'http://localhost').searchParams.get('view')==='calculator'){catalog.products=catalog.products.filter(p=>p.calculator!==false&&['m2','kg'].includes(p.unit)).map(({id,name,terms,price,unit,variants,images,minimumOrder,density,packSize})=>({id,name,terms,price,unit,variants,images:images.slice(0,1),minimumOrder,density,packSize}));catalog.categories=[];}answer(200,catalog);return true;
+    if(req.method!=='GET')throw new AdminError('Метод не поддерживается.',405);const catalog=await db.published();if(new URL(req.url,'http://localhost').searchParams.get('view')==='calculator')catalog.products=catalog.products.filter(p=>p.calculator!==false&&p.unit).map(({id,name,terms,price,unit,categories,variants,images,minimumOrder,density,packSize,saleMode,densityConfirmed})=>({id,name,terms,price,unit,categories,variants,images:images.slice(0,1),minimumOrder,density,packSize,saleMode,densityConfirmed}));answer(200,catalog);return true;
    }
    if(path==='/api/catalog/deploy-status'){
     if(req.method!=='POST'||!process.env.PAGES_CALLBACK_TOKEN||!equal(req.headers.authorization,`Bearer ${process.env.PAGES_CALLBACK_TOKEN}`))throw new AdminError('Нет доступа.',403);
@@ -56,6 +56,9 @@ export function createAdminHandler({store=getStore,siteUrl=process.env.SITE_URL|
    if(!session)throw new AdminError('Войдите в панель управления.',401);
    if(writing&&!equal(req.headers['x-csrf-token'],session.csrf))throw new AdminError('Сессия изменилась. Обновите страницу.',403);
    if(path==='/api/admin/logout'&&req.method==='POST'){await db.logout(token);setCookie('',0);answer(200,{ok:true});return true;}
+   if(path==='/api/admin/leads'&&req.method==='GET'){answer(200,{leads:await db.leads()});return true;}
+   if(path==='/api/admin/leads/delete'&&req.method==='POST'){const data=await json(4096);await db.deleteLead(data.id);await db.audit(session.username,'lead.delete',String(data.id));answer(200,{ok:true});return true;}
+   if(path==='/api/admin/leads/status'&&req.method==='POST'){const data=await json(4096);await db.setLeadStatus(data.id,data.status);answer(200,{ok:true});return true;}
    if(path==='/api/admin/catalog'&&req.method==='GET'){answer(200,await db.admin());return true;}
    if(path==='/api/admin/products'&&req.method==='POST'){const data=await json();const saved=await db.saveProduct(data,session.username);answer(200,{ok:true,product:saved});return true;}
    if(path==='/api/admin/products/delete'&&req.method==='POST'){const data=await json();await db.deleteProduct(data.id,data.version,session.username);answer(200,{ok:true});return true;}

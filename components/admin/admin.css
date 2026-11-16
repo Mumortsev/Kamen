@@ -10,3 +10,4 @@
 .admin-brand>span,.admin-root .admin-kicker{color:#536547}.admin-heading h1 sup{color:#596853}.admin-sidebar nav button>span{opacity:1}
 
 .admin-button.danger{background:#7d3b2b;border-color:#7d3b2b;color:#fff}.admin-danger-zone{margin-top:25px}.admin-category-editor>.admin-button.danger{margin-left:20px}
+.admin-lead-summary{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.7}.admin-form-pair>label{min-width:0}.admin-root label{font-size:14px}.admin-root small{font-size:12px}.admin-root p{font-size:14px}.admin-tools{grid-template-columns:2fr 1fr}.admin-root input[type=file]{white-space:normal}@media(max-width:480px){.admin-form-pair{grid-template-columns:1fr}.admin-topbar .admin-save-state{max-width:220px}.admin-variant{grid-template-columns:1fr 1fr 25px}}
