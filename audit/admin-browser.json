@@ -7,7 +7,8 @@
     "published product appears at a new URL with price, description and image",
     "calculator uses the same variant price",
     "stale quote is rejected before delivery; calculator refreshes to the new price",
-    "archived material disappears from calculator, public data and product route"
+    "archived material disappears from calculator, public data and product route",
+    "product deletion and category creation/deletion work through confirmed UI actions"
   ],
   "errors": []
 }

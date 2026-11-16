@@ -1,8 +1,8 @@
 {
   "implementation": "Kurortnik24 admin patterns adapted to Kamen Next.js",
-  "unitTests": 29,
+  "unitTests": 31,
   "postgresVerification": "PostgreSQL engine PGlite; SQL adapter, JSONB, publication, restore and sessions. Cloud network not yet connected.",
-  "browserFlow": "audit/admin-browser.json",
+  "browserFlow": "audit/admin-browser.json (7 scenarios, including explicit product/category deletion)",
   "emptyCatalog": "Verified on isolated Next.js production server: all categories hidden, no public products, safe calculator fallback.",
   "pagesPreview": "Readonly catalog, disabled mutations, product preview; visually inspected at 1440x1000 and 390x844.",
   "runtimeBuild": "Next.js production build includes native API, dynamic product URLs, sitemap and uploads routes.",
@@ -10,8 +10,8 @@
   "realCustomerLeadsSent": false,
   "cloudDatabaseConnected": false,
   "deployment": {
-    "pages": "published and verified",
-    "vercel": "cancelled by user",
-    "liveAdminServer": "not deployed; hosting pending"
+    "pages": "published; updated demonstration controls will follow the new build",
+    "vercel": "kamen project linked; Blob connected; Neon connection pending",
+    "liveAdminServer": "database initialization pending"
   }
 }

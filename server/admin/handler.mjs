@@ -58,6 +58,8 @@ export function createAdminHandler({store=getStore,siteUrl=process.env.SITE_URL|
    if(path==='/api/admin/logout'&&req.method==='POST'){await db.logout(token);setCookie('',0);answer(200,{ok:true});return true;}
    if(path==='/api/admin/catalog'&&req.method==='GET'){answer(200,await db.admin());return true;}
    if(path==='/api/admin/products'&&req.method==='POST'){const data=await json();const saved=await db.saveProduct(data,session.username);answer(200,{ok:true,product:saved});return true;}
+   if(path==='/api/admin/products/delete'&&req.method==='POST'){const data=await json();await db.deleteProduct(data.id,data.version,session.username);answer(200,{ok:true});return true;}
+   if(path==='/api/admin/categories/delete'&&req.method==='POST'){const data=await json();await db.deleteCategory(data.id,data.revision,session.username);answer(200,{ok:true});return true;}
    if(path==='/api/admin/categories'&&req.method==='POST'){const data=await json();answer(200,{ok:true,category:await db.saveCategory(data.category,data.revision,session.username)});return true;}
    if(path==='/api/admin/publish'&&req.method==='POST'){
     const data=await json(4096);const snapshot=await db.publish(data.revision,session.username);await db.setDeploy(snapshot.revision,'not_configured');

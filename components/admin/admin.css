@@ -8,3 +8,5 @@
 .admin-sidebar-close{display:none}@media(max-width:760px){.admin-sidebar-close{display:block;position:absolute;top:17px;right:12px;background:none;border:0;color:#34553d;font-size:25px;width:35px;height:35px}.admin-sidebar>.admin-brand{margin-top:20px}}
 /* Keep small counters and navigation labels readable on the pale sidebar. */
 .admin-brand>span,.admin-root .admin-kicker{color:#536547}.admin-heading h1 sup{color:#596853}.admin-sidebar nav button>span{opacity:1}
+
+.admin-button.danger{background:#7d3b2b;border-color:#7d3b2b;color:#fff}.admin-danger-zone{margin-top:25px}.admin-category-editor>.admin-button.danger{margin-left:20px}
