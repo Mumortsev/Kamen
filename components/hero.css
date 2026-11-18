@@ -63,3 +63,10 @@ html.page-scroll:not(.past-hero) .floating-actions { display: none; }
   #hero .surface-switch button { min-height: 30px; }
   #hero .finish-options button { min-height: 35px; }
 }
+
+.hero-pebbles {
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  pointer-events: none;
+}

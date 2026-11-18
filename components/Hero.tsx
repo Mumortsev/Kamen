@@ -16,7 +16,7 @@ export default function Hero() {
       if(disposed)return;
       document.documentElement.classList.add('load-error','hero-visible');
       const scene=document.getElementById('hero');scene?.style.setProperty('--reveal','1');scene?.style.setProperty('--cue','0');
-      const path=document.getElementById('hero-path');if(path)path.style.visibility='hidden';
+      for(const id of ['hero-path','hero-pebbles']){const layer=document.getElementById(id);if(layer)layer.style.visibility='hidden';}
       for(const id of ['header','copy','lower','bottom']){const node=document.getElementById(id);if(node){node.hidden=false;node.inert=false;node.setAttribute('aria-hidden','false');}}
       const picker=document.getElementById('hero-finishes');if(picker){picker.hidden=true;picker.inert=true;}
       const cue=document.getElementById('cue');if(cue)cue.style.visibility='hidden';
@@ -36,7 +36,7 @@ export default function Hero() {
   return <div id="story">
     <section className="scene" id="hero" aria-label="Облицовка дома и отсыпка дорожки природным камнем">
       <picture className="poster"><source media="(max-width:700px), (max-aspect-ratio:4/5)" srcSet={asset('mobile-concrete.webp')} /><img src={asset('desktop-space-concrete.webp')} alt="Одноэтажный дом до облицовки природным камнем" fetchPriority="high" width="1672" height="941" /></picture>
-      <div className="hero-path" id="hero-path" aria-hidden="true" /><canvas id="cladding-settled" aria-hidden="true" /><canvas id="cladding" aria-hidden="true" /><div className="hero-shade" aria-hidden="true" />
+      <div className="hero-path" id="hero-path" aria-hidden="true" /><canvas id="cladding-settled" aria-hidden="true" /><canvas id="cladding" aria-hidden="true" /><canvas className="hero-pebbles" id="hero-pebbles" aria-hidden="true" /><div className="hero-shade" aria-hidden="true" />
       <header className="reveal" id="header" inert hidden>
         <a className="brand" href="#" onClick={scrollTop} aria-label={`${company.name} — в начало`}><span className="brand-word">КАМЕНЬТОРГ<span className="brand-number">23</span><small>ПРИРОДНЫЙ КАМЕНЬ</small></span></a>
         <nav aria-label="Основное меню"><Link prefetch={false} href="/catalog/">Каталог</Link><a href="#service">Доставка и монтаж</a><a href="#contacts">Контакты</a></nav>
